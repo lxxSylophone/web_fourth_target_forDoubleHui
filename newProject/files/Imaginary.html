@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<link href='http://www.youziku.com/webfont/CSS/1ceda9af4233335abe846291a053ea05' rel='stylesheet' type='text/css'/>
+</head>
+<style>
+@font-face
+{
+	font-family:give;
+	 src:url(../newStart/fonts/TYPO_COMICS_bold_demo.otf);
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face
+{
+	font-family:kit;
+	 src:url(../newStart/fonts/kit.ttf);
+	font-weight:normal;
+	font-style:normal;
+}
+*
+{
+	
+	margin: 0;
+	padding:0;
+}
+body
+{
+	background: RGB(254,245,230);
+}
+#content
+{
+
+   width: 97%;
+   height: 1300px;
+   left: 1.5%;
+   top: 20px;
+   box-shadow: 5px 5px 5px rgba(0,0,0,.5),-5px 0px 5px rgba(0,0,0,.5);
+	position: absolute;
+}
+#canvas1
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#show
+{
+	position: absolute;
+	left:50%;
+	margin-left: -120px;
+	top: 154px;
+	width: 241px;
+    height: 51px;
+    color: purple;
+    font-size: 46px;
+    font-weight: 700;
+    font-family:kit;
+}
+#pic
+{
+	position: absolute;
+	top: 240px;
+	left: 50%;
+	margin-left: -400px;
+	width: 800px;
+	height: 400px;
+	box-shadow: 5px 5px 10px rgba(0,0,0,.8);
+	
+}
+#he
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	list-style: none;
+}
+#he li
+{
+	position: absolute;left: 0;top:0;width: 0;height: 0;opacity: 0;
+}
+#he .a
+{
+	width: 100%;
+	height: 0%;
+}
+#he .b
+{
+	width: 0%;
+	height: 100%;
+}
+#he .now
+{
+	position: absolute;left: 0;top:0;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	transition: all ease-out 1.2s;
+	-webkit-transition: all ease-out 1.2s;
+}
+#he li img
+{
+	position: absolute;left: 0;top:0;width: 100%;height: 100%;
+}
+#game
+{
+	position: absolute;
+	list-style: none;
+	left:50%;
+	margin-left:-375px; 
+	top: 20px;
+	width: 750px;
+	height: 30px;
+	font-size: 25px;
+	font-weight: 500;
+	font-family:give;
+
+}
+#game li
+{
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	left: 0;top: -50px;
+	opacity: 0;
+	
+	 
+}
+#game .showTittle
+{
+	opacity: 1;
+	top: 0px;
+	transition: all ease-out 1.2s .5s;
+	-webkit-transition: all ease-out 1.2s .5s;
+}
+#ti
+{
+	position: absolute;
+	list-style: none;
+	right: 13px;
+	bottom:10px; 
+	width: 181px;
+	height: 25px;
+	z-index: 10000;
+}
+#ti li
+{
+	float: left;
+	margin-left: 8px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: pink;
+	text-align:center;
+	line-height: 25px;
+}
+#ti li:hover
+{
+	cursor: pointer;
+}
+#ti .current
+{
+	background: red;
+}
+#canvas2
+{
+	position: absolute;left:0;top: 150px;
+	z-index: 1111;
+}
+#ret
+{
+	z-index: 1112;
+	position: absolute;
+	left:62%;
+	top: 184px;
+	width: 135px;
+    height: 30px;
+    font-weight: 700;
+    animation: k ease-in-out 1s infinite;
+   -webkit-animation: k ease-in-out 1s infinite;
+   font-family:kit;
+}
+#ret:hover
+{
+	cursor: pointer;
+}
+#canvas3
+{
+	position: absolute;
+	left:0;
+	top:650px;
+	border-bottom:6px solid green; 
+	
+}
+#canvas4
+{
+	position: absolute;left: 320px;
+	top:670px;	
+}
+#last
+{
+	position: absolute;
+	width: 100%;
+	height: 200px;
+	top: 1058px;
+	left: 0;
+	font-family:kit;
+}
+#last p:nth-of-type(1)
+{
+	position: absolute;
+	left: 150px;
+	top: 30px;
+	font-size: 25px;
+	font-weight: 600;
+	color: purple;
+}
+#last p:nth-of-type(2)
+{
+	position: absolute;
+	left: 488px;
+	top: 80px;
+	font-size: 25px;
+	font-weight: 600;
+	color: green;
+}
+#last p:nth-of-type(3)
+{
+	position: absolute;
+	left: 740px;
+	top: 150px;
+	font-size: 25px;
+	font-weight: 600;
+	color: red;
+}
+@keyframes k
+{
+	0%
+	{
+        color: purple;
+    font-size: 14px;
+	}
+	20%
+	{
+      color:green;
+      font-size: 15px;
+	}
+	40%
+	{
+       color:orange;
+      font-size: 16px;
+	}
+	60%
+	{
+      color:pink;
+      font-size: 18px;
+	}
+	80%
+	{
+     color:red;
+      font-size: 19px;
+	}
+	100%
+	{
+      color:blue;
+      font-size: 20px;
+	}
+}
+
+@-webkit-keyframes k
+{
+	0%
+	{
+        color: purple;
+    font-size: 14px;
+	}
+	20%
+	{
+      color:green;
+      font-size: 15px;
+	}
+	40%
+	{
+       color:orange;
+      font-size: 16px;
+	}
+	60%
+	{
+      color:pink;
+      font-size: 18px;
+	}
+	80%
+	{
+     color:red;
+      font-size: 19px;
+	}
+	100%
+	{
+      color:blue;
+      font-size: 20px;
+	}
+}
+</style>
+<body>
+<div id='content'>
+<canvas id="canvas1"></canvas>
+<div id="show">梦幻の星空</div>
+<a href="main.html"><div id="ret">返回首页</div></a>
+<canvas id="canvas2"></canvas>
+<div id="pic">
+  <ul id="he">
+    <li class="now" ><img src="../newStart/indexImg/111.jpg"></li>
+  <li class="a"><img src="../newStart/indexImg/222.jpg"></li> 
+    <li class="b" ><img src="../newStart/indexImg/333.jpg"></li>
+     <li ><img src="../newStart/indexImg/444.jpg"></li> 
+  <li ><img src="../newStart/indexImg/555.jpg"></li>  
+  </ul>
+  <ul id="ti">
+  <li class="current">1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  </ul>
+  <ul id="game">
+  <li class="showTittle">Love fresh as the morning air.</li>
+  <li>Just say happy Birthday to my double Hui.</li>
+  <li>Just one smeil from you can light my world up.</li>
+  <li>Wanna be your Baymax，support you and with you all the time.</li>
+  <li>Smile, it's free therapy.</li>
+  </ul>
+</div>
+<canvas id="canvas3"></canvas>
+<canvas id="canvas4"></canvas>
+<div id="last"><p>心有多远，你就能走多远..</p><p>往前走，莫回头....</p><p>只要不停下，慢点有什么关系..</p></div>
+</div>
+<embed src="music/Sound Horizon - 苍と白の境界线.mp3" width="292" height="43" hidden="true" loop="true"></embed>
+<script type="text/javascript">
+     var star={
+	 	        x:290,
+	 	        y:190,
+	 	        r:50
+	 }
+	 var change=false;
+	 var rot=0;
+    var balls=[];
+    var color=['green','red','#66B3FF','pink','orange','purple','#F75000','#D94600','#A8FF24','#737300','#7E3D76','#4F9D9D','#93FF93'];
+    var starColor=['red','#FF0', '#0F9',  '#F63', '#F9C', '#3C9',' #6C3',' #F39'];
+	window.onload=function()
+	{
+		var canvas1=document.getElementById('canvas1');
+		var context1=canvas1.getContext('2d');
+		canvas1.width=document.documentElement.clientWidth||document.body.clientWidth;
+		canvas1.height=300;
+
+	
+        /*画一条挂星星的线条*/
+        context1.beginPath();
+        context1.strokeStyle='black';
+		context1.lineWidth=10;
+		context1.moveTo(30,10);
+		context1.lineTo(canvas1.width-50,10);
+		context1.stroke();
+		context1.closePath();
+        
+        for(var i=0;i<15;i++)
+        {
+        context1.beginPath();
+         context1.moveTo(60+i*80,14);
+         var x=60+i*80+Math.random()*20;
+         context1.lineTo(x,100);
+         context1.strokeStyle=color[Math.floor(Math.random()*color.length)];
+         context1.lineWidth=3;
+         context1.stroke();
+         
+         drawStar(context1,20+20*Math.random(),x,100,30*Math.random());
+         
+        context1.closePath();  
+        }
+
+
+        /*气泡效果*/
+        var canvas2=document.getElementById('canvas2');
+        var ct=canvas2.getContext('2d');
+         canvas2.width=0.97*(document.documentElement.clientWidth||document.body.clientWidth);
+         canvas2.height=1100;
+        
+        for(var i=0;i<50;i++)
+        {
+           var R=Math.floor(Math.random()*255);
+           var G=Math.floor(Math.random()*255);
+           var B=Math.floor(Math.random()*255);
+           var ball={
+                      x:Math.random()*canvas2.width,
+                      y:Math.random()*canvas2.height,
+                      vx:(5+Math.random()*5)*Math.pow(-1,Math.floor(Math.random()*100)),
+                      vy:(5+Math.random()*5)*Math.pow(-1,Math.floor(Math.random()*100)),
+                      r:Math.random()*20+20,
+                      color:"rgb("+R+','+G+','+B+')'
+                  };
+                  balls[i]=ball;
+        }
+        setInterval(function(){
+             drawCircle(ct);
+        	update(canvas2.width,canvas2.height);
+        },40)
+
+
+        /*描绘小人*/
+        var canvas3=document.getElementById('canvas3');
+        var ctw=canvas3.getContext('2d');
+        canvas3.width=0.97*(document.documentElement.clientWidth||document.body.clientWidth);
+        canvas3.height=400;
+
+        ctw.beginPath();
+        ctw.strokeStyle='green';
+        ctw.lineWidth=3;
+        ctw.arc(200,150,70,0,2*Math.PI);
+         ctw.stroke();
+        ctw.closePath();
+
+        ctw.beginPath();
+        ctw.strokeStyle='black';
+        ctw.lineWidth=4;
+        ctw.arc(175,130,20,0,Math.PI,true);
+        ctw.stroke();
+        ctw.closePath();
+
+        ctw.beginPath();
+        ctw.strokeStyle='black';
+        ctw.lineWidth=4;
+        ctw.arc(230,130,20,0,Math.PI,true);
+        ctw.stroke();
+        ctw.closePath();
+   
+        ctw.beginPath();
+        ctw.strokeStyle='black';
+        ctw.lineWidth=4;
+        ctw.fillStyle="red";
+        ctw.arc(200,170,30,Math.PI,0,true);
+        ctw.lineTo(170,170);
+        ctw.stroke();
+         ctw.fill();
+        ctw.closePath();
+        
+        ctw.beginPath();
+        ctw.lineWidth=4;
+        ctw.strokeStyle='green';
+        ctw.moveTo(200,220);
+        ctw.lineTo(200,400);
+        ctw.stroke();
+  
+
+
+      ctw.beginPath();
+        ctw.strokeStyle='green';
+        ctw.lineWidth=3;
+        ctw.arc(1000,150,70,0,2*Math.PI);
+         ctw.stroke();
+        ctw.closePath();
+
+        ctw.beginPath();
+        ctw.strokeStyle='black';
+        ctw.lineWidth=4;
+        ctw.arc(975,130,20,0,Math.PI,true);
+        ctw.stroke();
+        ctw.closePath();
+
+        ctw.beginPath();
+        ctw.strokeStyle='black';
+        ctw.lineWidth=4;
+        ctw.arc(1030,130,20,0,Math.PI,true);
+        ctw.stroke();
+        ctw.closePath();
+   
+        ctw.beginPath();
+        ctw.strokeStyle='black';
+        ctw.lineWidth=4;
+        ctw.fillStyle="red";
+        ctw.arc(1000,170,30,Math.PI,0,true);
+        ctw.lineTo(970,170);
+        ctw.stroke();
+         ctw.fill();
+        ctw.closePath();
+        
+        ctw.beginPath();
+        ctw.lineWidth=4;
+        ctw.strokeStyle='green';
+        ctw.moveTo(1000,220);
+        ctw.lineTo(1000,400);
+        ctw.stroke();
+
+     /*星星探照灯效果*/
+     var canvas4=document.getElementById('canvas4');
+     var cc=canvas4.getContext('2d');
+     canvas4.width=580;
+	 canvas4.height=380;
+	
+	 setInterval(function(){
+	 	drawTanzhao(cc);
+	 	updateStar(canvas4.width,canvas4.height);
+	 },40)
+  
+
+
+
+     /*动画轮番播放的效果*/
+     var opicul=document.getElementById('he');
+     var opicture=opicul.getElementsByTagName('li');
+     var onav=document.getElementById('ti');
+     var onavli=onav.getElementsByTagName('li');
+     var otitle=document.getElementById('game');
+     var oshowTitle=otitle.getElementsByTagName('li');
+     var w=0;
+     for(var i=0;i<onavli.length;i++)
+     {
+     	onavli[i].index=i;
+     	onavli[i].onmouseover=function()
+     	{
+     		 for(var j=0;j<onavli.length;j++)
+     		 {
+     		 	onavli[j].className='';
+     		 	opicture[j].className='';
+     		 	oshowTitle[j].className='';
+     		 }
+     		 onavli[this.index].className='current';
+     		 opicture[this.index].className='now';
+     		 oshowTitle[this.index].className='showTittle';
+     		 w=this.index;
+
+     	}
+     	
+     }
+     onav.onmouseout=function()
+     	{
+     		for(var i=0;i<onavli.length;i++)
+     			onavli[i].className=''; 
+     		onavli[w].className='current';
+     	}
+    }
+    function drawTanzhao(cxt)
+    {
+       var canvas4=cxt.canvas;
+       cxt.clearRect(0,0,canvas4.width,canvas4.height);
+
+
+      cxt.save()
+       cxt.beginPath();
+       cxt.fillStyle='RGB(254,245,230)';
+       cxt.fillRect(0, 0, canvas4.width, canvas4.height);
+       cxt.closePath();
+
+        cxt.save();
+        cxt.beginPath();
+        cxt.translate(star.x,star.y);
+        cxt.scale(star.r,star.r);
+        cxt.rotate(rot/180*Math.PI);
+        starPath(cxt);
+        cxt.fillStyle='pink';
+        cxt.fill();
+        cxt.closePath();
+        cxt.restore();
+        cxt.clip();
+       
+
+        cxt.beginPath();
+        cxt.textAlign='center';
+        cxt.textBaseline='middle';
+        cxt.font='bold 20px 楷体';
+        cxt.fillStyle='green';
+        cxt.fillText('我们微笑着说',canvas4.width/2,canvas4.height/6);
+         cxt.fillText('我们停留在时光的原处',canvas4.width/2,2*canvas4.height/6);
+          cxt.fillText('其实早就已被洪流无声地卷走',canvas4.width/2,3*canvas4.height/6);
+           cxt.fillText('阳光，很暖',canvas4.width/2,4*canvas4.height/6);
+            cxt.fillText('每一天，其实都很美好~Smile',canvas4.width/2,5*canvas4.height/6);
+          cxt.closePath();
+          cxt.restore();
+          
+    }
+    function updateStar(a,b)
+  {
+    if(star.r>=400)
+      change =true;
+    else if(star.r<=100)
+      change=false;
+      if(change)
+      {
+        star.r=star.r-5;
+      }
+      else
+      {
+        star.r=star.r+5;
+      }
+  }
+	function drawStar(cxt,r,x,y,rot)
+	{
+		cxt.save();
+		cxt.translate(x,y);
+		cxt.scale(r,r);
+		cxt.rotate(rot/180*Math.PI);
+		starPath(cxt);
+		cxt.fillStyle=starColor[Math.floor(Math.random()*starColor.length)];
+		cxt.fill();
+		cxt.restore();
+	}
+	function starPath(cxt)
+	{
+		cxt.beginPath();
+      	for(var j=0;j<5;j++)
+   	{
+        cxt.lineTo(Math.cos((18+j*72)/180*Math.PI),-Math.sin((18+72*j)/180*Math.PI));
+           cxt.lineTo(Math.cos((54+j*72)/180*Math.PI)*0.5,-Math.sin((54+72*j)/180*Math.PI)*0.5);
+   	}
+   	cxt.closePath();
+        cxt.closePath();
+	}
+	function drawCircle(cxt)
+	{
+		var canvas=cxt.canvas;
+		cxt.clearRect(0,0,canvas2.width,canvas2.height);
+		for(var i=0;i<balls.length;i++)
+		{
+			cxt.beginPath();
+			cxt.fillStyle=balls[i].color;
+			cxt.globalCompositeOperation='lighter';
+			cxt.globalAlpha=0.7;
+			cxt.arc(balls[i].x,balls[i].y,balls[i].r,0,2*Math.PI);
+			cxt.closePath();
+			cxt.fill();
+		}
+	}
+	function update(a,b)
+	{
+      for(var i=0;i<balls.length;i++)
+      {
+      	balls[i].x +=balls[i].vx;
+      	balls[i].y +=balls[i].vy;
+      	if(balls[i].x+balls[i].r>=a)
+      	{
+      		balls[i].x=a-balls[i].r
+      		balls[i].vx=-balls[i].vx;
+      	}
+      	else if(balls[i].x-balls[i].r<=0)
+      	{
+            balls[i].x=balls[i].r;
+            balls[i].vx=-balls[i].vx;
+      	}
+
+      		if(balls[i].y+balls[i].r>=b)
+      	{
+      		balls[i].y=b-balls[i].r
+      		balls[i].vy=-balls[i].vy;
+      	}
+      	else if(balls[i].y-balls[i].r<=0)
+      	{
+            balls[i].y=balls[i].r;
+            balls[i].vy=-balls[i].vy;
+      	}
+      }
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Calendar</title>
+<style>
+@font-face
+{
+    font-family:cai;
+    font-style:normal;
+    font-weight:normal;
+    src:url(../newStart/fonts/calander/cyjianxk.ttf);
+}
+@font-face
+{
+    font-family:c;
+    font-style:normal;
+    font-weight:normal;
+    src:url(../newStart/fonts/calander/cyjianxk2.ttf);
+}
+*
+{
+	margin:0;
+	padding:0;
+	font-family:c;
+}
+body
+{
+	background:url(../newStart/indexImg/1192684.jpg);
+}
+.content
+{
+	width:90%;
+	height:950px;
+	position:absolute;
+	left:5%;
+	top:2%;
+	box-shadow:2px 2px 10px rgba(0,0,0,.8), -2px -2px 10px rgba(0,0,0,.8);
+	overflow:hidden;
+}
+.title
+{
+	position:absolute;
+	width:100%;
+	height:100px;
+	left:0;
+	top:0;
+	line-height:100px;
+	text-align:center;
+	font-size:50px;
+	animation:colorChange ease-in-out 2s infinite;
+	-webkit-animation:colorChange ease-in-out 2s infinite;
+}
+@keyframes colorChange
+{
+	0%
+	{
+		color:#C6C;
+	}
+	20%
+	{
+		color:#FC3;
+	}
+	40%
+	{
+		color:#F69;
+	}
+	60%
+	{
+		color:#6C6;
+	}
+	80%
+	{
+		color:#C39;
+	}
+	100%
+	{
+		color:#0C3;
+	}
+	
+}
+@-webkit-keyframes colorChange
+{
+	0%
+	{
+		color:#C6C;
+	}
+	20%
+	{
+		color:#FC3;
+	}
+	40%
+	{
+		color:#F69;
+	}
+	60%
+	{
+		color:#6C6;
+	}
+	80%
+	{
+		color:#C39;
+	}
+	100%
+	{
+		color:#0C3;
+	}
+	
+}
+.calendar
+{
+	position:absolute;
+	left:5%;
+	top:100px;
+	height:600px;
+	width:90%;
+	box-shadow:2px 2px 10px rgba(0,0,0,.5), -2px -2px 10px rgba(0,0,0,.5);
+}
+.left
+{
+	width:15%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	box-shadow:2px 2px 10px rgba(0,0,0,.5);
+}
+.left ul
+{
+	list-style:none;
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	font-size:24px;
+}
+.left li
+{
+	width:100%;
+	height:120px;
+	line-height:120px;
+	box-shadow:2px 2px 10px rgba(0,0,0,.5);
+	text-align:center;
+}
+.left li a
+{
+	display:block;
+	width:100%;
+	height:100%;
+	transition: all ease-out .5s;
+	-webkit-transition:all ease-out .5s;
+	
+}
+.left li:hover
+{
+	cursor:pointer;
+}
+.left li .current
+{
+   background:#FFC;
+   opacity:0.3;
+   color:#F63;
+}
+.rightHead
+{
+	position:absolute;
+	left:15%;
+	top:0;
+	width:85%;
+	height:80px;
+	line-height:80px;
+	text-align:center;
+	font-size:24px;
+	color:#F99;
+}
+.calan
+{
+	position:absolute;
+	left:15%;
+	top:80px;
+	width:85%;
+	height:520px;
+}
+.calan .date
+{
+	list-style:none;
+	position:absolute;
+	left:10px;
+	top:0;
+	width:100%;
+	height:100%;
+	display:none;
+}
+#u1
+{
+	display:block;
+}
+#u2
+{
+	animation:w ease-out 3s .2s;
+	-webkit-animation:w ease-out 3s.2s ;
+}
+.calan .date1 li,
+.calan .date2 li
+{
+	width:90%;
+	height:auto;
+	box-shadow:0px 2px 5px rgba(0,0,0,.5);
+	padding:16px;
+	margin:6px;
+	font-size:18px;
+	color:purple;
+
+}
+.calan .date1 li:nth-of-type(1)
+{
+	animation:w ease-out 3s .2s;
+	-webkit-animation:w ease-out 3s.2s ;
+}
+.calan .date1 li:nth-of-type(2)
+{
+	animation:w ease-in 3s .5s;
+	-webkit-animation:w ease-in 3s .5s ;
+}
+.calan .date1 li:nth-of-type(3)
+{
+	animation:w ease-in-out 3s 1s;
+	-webkit-animation:w ease-in-out 3s 1s ;
+}
+.calan .date1 li:nth-of-type(4)
+{
+	animation:w ease-out 3s 1.5s;
+	-webkit-animation:w ease-out 3s 1.5s ;
+}
+.calan .date1 li:nth-of-type(5)
+{
+	animation:w ease-out 3s 1.7s;
+	-webkit-animation:w ease-out 3s 1.7s ;
+}
+.calan .date1 li:nth-of-type(6)
+{
+	animation:w ease-out 3s 1.9s;
+	-webkit-animation:w ease-out 3s 1.9s ;
+}
+.calan .date1 li:nth-of-type(7)
+{
+	animation:w ease-out 3s 2.2s;
+	-webkit-animation:w ease-out 3s 2.2s ;
+}
+@keyframes w
+{
+	from
+	{
+		transform:translateX(-1200px);
+		-webkit-transform:translateX(-1200px);
+	}
+	to
+	{
+		transform:translateX(0px);
+		-webkit-transform:translateX(0px);
+	}
+}
+@-webkit-keyframes w
+{
+	from
+	{
+		transform:translateX(-1200px);
+		-webkit-transform:translateX(-1200px);
+	}
+	to
+	{
+		transform:translateX(0px);
+		-webkit-transform:translateX(0px);
+	}
+}
+.calan .date3 li,
+.calan .date4 li
+{
+	width:12%;
+	height:90px;
+	float:left;
+	font-size:24px;
+	box-shadow:2px 2px 5px rgba(0,0,0,.5);
+	transform:scale(1);
+	-webkit-transform:scale(1);
+	transition:all ease-out .5s;
+	-webkit-transition:all ease-out .5s;
+	text-align:center;
+	/*设置字体*/
+	font-family: 楷体;
+}
+.calan .date3 li img,
+.calan .date4 li img
+{
+	position:absolute;
+	left:40%;
+	top:40%;
+}
+.calan .date3 li:nth-of-type(31),
+.calan .date4 li:nth-of-type(31)
+{
+	width:96%;
+	position:absolute;
+	left:0;
+	bottom:18px;
+	height:120px;
+	box-shadow:2px 2px 10px rgba(0,0,0,.8);
+	text-align:left;
+	color:purple;
+}
+.calan .date3 li:hover,
+.calan .date4 li:hover
+{
+	cursor:pointer;
+	background:#FCF;
+	opacity:.5;
+	transform:scale(1.2);
+	-webkit-transform:scale(1.2);
+	box-shadow:2px 2px 10px rgba(0,0,0,.8);
+}
+.calan .date3 li:nth-of-type(31):hover,
+.calan .date4 li:nth-of-type(31):hover
+{
+	transform:scale(1);
+	-webkit-transform:scale(1);
+	background:none;
+}
+#u3
+{
+	animation:hei ease-out .8s ;
+	-webkit-animation:hei ease-out .8s  ;
+}
+#u4
+{
+	animation:ro ease-out .8s ;
+	-webkit-animation:ro ease-out .8s  ;
+}
+#u5
+{
+	animation:hei ease-out .8s ;
+	-webkit-animation:hei ease-out .8s  ;
+}
+#u5 img
+{
+	left:15%;
+	top:8%;
+	position:absolute;
+	width:600px;
+	height:auto;
+}
+@keyframes hei
+{
+	from
+	{
+		transform:scale(2);
+		-webkit-transform:scale(2);
+		opacity:0;
+	}
+	to
+	{
+		transform:scale(1);
+		-webkit-transform:scale(1);
+		opacity:1;
+	}
+		
+}
+@-webkit-keyframes hei
+{
+	from
+	{
+		transform:scale(2);
+		-webkit-transform:scale(2);
+		opacity:0;
+	}
+	to
+	{
+		transform:scale(1);
+		-webkit-transform:scale(1);
+		opacity:1;
+	}
+		
+}
+@keyframes ro
+{
+	from
+	{
+		transform:rotate(360deg) scale(1.5);
+	}
+	to
+	{
+		transform:rotate(0deg) scale(1);
+	}
+}
+@-webkit-keyframes ro
+{
+	from
+	{
+		-webkit-transform:rotate(360deg) scale(1.5);
+	}
+	to
+	{
+		-webkit-transform:rotate(0deg) scale(1);
+	}
+}
+
+
+/*下面的导航*/
+.b
+{
+	width:100%;
+	height:150px;
+	bottom:94px;;
+	position:absolute;
+	left:0;
+}
+.b1
+{
+	position:absolute;
+	left:13%;
+	top:0;
+	width:175px;
+	height:150px;
+	transform:rotate(0deg) scale(1);
+	-webkit-transform:rotate(0deg) scale(1);
+	transition:all ease-out .3s;
+	-webkit-transition:all ease-out .3s;
+}
+.b2
+{
+	position:absolute;
+	left:41%;
+	top:0;
+	width:175px;
+	height:150px;
+	transform:rotate(0deg) scale(1);
+	-webkit-transform:rotate(0deg) scale(1);
+	transition:all ease-out .3s;
+	-webkit-transition:all ease-out .3s;
+}
+.b3
+{
+	position:absolute;
+	left:70%;
+	top:-11px;
+	width:175px;
+	height:150px;
+	transform:rotate(0deg) scale(1);
+	-webkit-transform:rotate(0deg) scale(1);
+	transition:all ease-out .3s;
+	-webkit-transition:all ease-out .3s;
+}
+.aa
+{
+	position:absolute;
+	width:175px;
+	height:50px;
+	background:#6C9;
+	bottom:-55px;
+	left:13%;
+	border:2px solid #FFF;
+	text-align:center;
+	font-size:20px;
+	line-height:50px;
+}
+.bb
+{
+	position:absolute;
+	width:175px;
+	height:50px;
+	background:#F99;
+	bottom:-55px;
+	left:41%;
+	border:2px solid #FFF;
+	text-align:center;
+	font-size:20px;
+	line-height:50px;
+}
+.cc
+{
+	position:absolute;
+	width:175px;
+	height:50px;
+	background:#FC3;
+	bottom:-55px;
+	left:71%;
+	border:2px solid #FFF;
+	text-align:center;
+	font-size:20px;
+	line-height:50px;
+}
+.b1:hover,
+.b2:hover,
+.b3:hover
+{
+	transform:rotate(360deg) scale(1.2);
+	-webkit-transform:rotate(360deg) scale(1.2);
+}
+.line1
+{
+	width:50px;
+	height:2px;
+	background:white;
+	position:absolute;
+	left:175px;
+	top:-2px;
+	display:block;
+	transform:translateX(-50px);
+	-webkit-transform:translateX(-50px);
+	transition:all ease-out .1s;
+	-webkit-transition:all ease-out .1s;
+}
+.line2
+{
+	width:2px;
+	height:50px;
+	background:white;
+	position:absolute;
+	left:175px;
+	top:47px;
+	display:block;
+	transform:translateY(-50px);
+	-webkit-transform:translateY(-50px);
+	transition:all ease-out .1s;
+	-webkit-transition:all ease-out .1s;
+}
+.line3
+{
+	width:50px;
+	height:2px;
+	background:white;
+	position:absolute;
+	left:-50px;
+	top:50px;
+	display:block;
+	transform:translateX(50px);
+	-webkit-transform:translateX(50px);
+	transition:all ease .1s;
+	-webkit-transition:all ease .1s;
+}
+.line4
+{
+	width:2px;
+	height:50px;
+	background:white;
+	position:absolute;
+	left:-2px;
+	top:-52px;
+	display:block;
+	transform:translateY(50px);
+	-webkit-transform:translateY(50px);
+	transition:all ease .1s;
+	-webkit-transition:all ease .1s;
+}
+.aa:hover .line1,
+.bb:hover .line1,
+.cc:hover .line1
+{
+	transform:translateX(0px);
+	-webkit-transform:translateX(0px);
+}
+.aa:hover .line2,
+.bb:hover .line2,
+.cc:hover .line2
+{
+	transform:translateY(0px);
+	-webkit-transform:translateY(0px);
+}
+.aa:hover .line3,
+.bb:hover .line3,
+.cc:hover .line3
+{
+	transform:translateX(0px);
+	-webkit-transform:translateX(0px);
+}
+.aa:hover .line4,
+.bb:hover .line4,
+.cc:hover .line4
+{
+	transform:translateY(0px);
+	-webkit-transform:translateY(0px);
+}
+.rt
+{
+	position:absolute;
+	right:10%;
+	top:30%;
+	transition:all .2s ease;
+	-webkit-transition:all .2s ease;
+	transform:translateX(0);
+	-webkit-transform:translateX(0);
+}
+.aa:hover .rt,
+.bb:hover .rt,
+.cc:hover .rt
+{
+  transform:translateX(40%);
+	-webkit-transform:translateX(40%);
+}
+.aa:hover,
+.bb:hover,
+.cc:hover
+{
+	cursor:pointer;
+}
+a{
+	text-decoration:none;
+}
+</style>
+<script>
+window.onload=function()
+{
+	//侧边栏的状态5个
+	var oa=document.getElementsByClassName('leftul')[0].getElementsByTagName('a');
+	//五个分别的ul 显示 用display显示
+	var oul=document.getElementsByClassName('calan')[0].getElementsByTagName('ul');
+	//标题
+	var orighthead=document.getElementsByClassName('rightHead')[0];
+	var orightDate=['要有多难忘，才会念念不忘','青春是一场大雨，即使感冒了，还盼回头再淋一次','当你最无助的时候，记住用你的左手紧紧地握住你的右手','我的十月，我们的十月','再见，不再见'];
+	var oli=document.getElementById('u3').getElementsByTagName('li');
+	//九月
+	var oshow3=document.getElementById('u3').getElementsByTagName('li')[30];
+	var odate=["表情控，遇到是美好，下暴雨，遇到你了，这种日子总能遇到你，打车打了好久，我会说，嘿，让你的脚丫在水里游一游啊.","是个超级学霸，台风天还跑实验室学习的傻b，不过这次貌似是不太大","看到你给我写代码，感觉你好有毅力啊~膜拜啊，大神","宋爱华说你每天生活在我们的淫威下存活，可是每天的乐趣就是逗你了","我说吃饭的时候是最放松最开心的时候，因为又可以逗你了..","每次你生气，总以为是我做了什么事情..哈~总以为自己有那么大的魅力，会让你生气","看复仇者联盟，抖腿，我对后面说能不能不抖腿，我们相视一笑，好傻b的对话，别人照样抖","8.20你很会挑时间，情人节从家里回来，也是醉了，背了超级大酒杯4只，说让姐姐接的，算好时间去接了的，郁闷..给我个惊喜么，完全的很悲伤的感觉，好不好..","9.1逛超市，袋子好重，你立马就接过提了，哎哟，这小朋友不错，不过是忙着让我们给拍照，我也是看醉了","9.3一个个都抛弃我打球去了，好忧伤..大妈背着我跟别人打球..不矜持的小三儿啊","9.4黄文浩说你心情不好..早上七点多醒的时候没发现你发的微博...想要给你Energy，还有，我一直都在..跟美丽俩是安慰了好久..","9.5跟美丽和雪姨一起起哄，你说了句心甘情愿..结果小胖当了内奸，黄来了，美丽故意支开我了，让你和黄单独地，哈哈，记得前一天我还很不识相地当了很大的灯泡","9.6你中午没吃饭，之后才知道你哭了，其实我又天真地以为是因为前天晚上单独把你抛下，你不开心了..","9.7早上开会，你讲完ppt就坐我旁边，一直没注意到你，原来你又哭了，连着两天..像个脆弱的小孩...其实你做的很好啊...我懂，是想证明自己.晚上你说跟黄讲清楚了，跑我这来调程序，我又挑衅你了，你让我滚，我说你终于正常了..是啊，正常了","晚上回来，你说肚子饿了，去买饼吃吧，过会，你又说不吃了吧...傻x，出来只带着手机和钥匙，没钱面对的是我还会不好意思讲,amazing..我还以为我们关系已经好到一定程度了的...","9.8美丽回家，我说我要送美丽上地铁，你说为了不让我跟美丽单独在一起，你也要送美丽...我说你伤害了我，我要去找美丽，你说要诅咒美丽，果然吃醋地女人最可怕~","9.11电梯口，大妈说：女神，刚想做一个大动作，我在后面加了个经病，我说我要用一丈红毒死你，大妈说我拉low了她，没文化真可怕，回去让我百度截图，结果一回去就咨询雪姨一丈红的意思.是多想证明自己博学啊..","9.13监考啊，好累...看着你叹气，以为你又跟一起监考的不好意思讲话..事实证明我白担心了..","9.14我说大妈你包好重，背的什么东西，不会是七龙珠吧，你说我要有七龙珠的话，我的愿望就是让你变聪明....中午躲在厕所门口吓大妈，哇的一声，大妈被吓得魂都飞了，可是就因为这..哀家形象也没了","晚上张博又奇葩地在，大妈悄悄地走，不巧碰到那朵云，用伞躲避人，我想就你做的出来..跟美丽一起下楼，刚好看到你，我在车库大叫，大妈..你说你那时想杀死我..","9.15美丽说的没错，一些事情我不问，你也会屁颠屁颠地说，双汇..double慧，不错啊，然后你有了个新的外号，叫火腿肠","9.16去了你梦寐以求的西塘，不对梦寐以求的花生，个性也是挺倔的..酒吧里很安静，气氛也很好，其实心情不好呆着是极好的...可以装忧郁啊","吼，没想到跟大妈的同床共枕是这样的一个噩梦，左右脚轮番过来袭击我，我还不好意思翻身，哎呀，唯一一点是肉不错啊~哈哈~","9.17动车上就40分钟的，你说你又睡着了，果然叫猪慧慧，哪里都好睡..难怪那么胖~","喔，那个梦，被大妈的猪蹄压迫地做了个梦，梦到不理我..好伤心...几年前得心情又瞬间席卷..","9.18心情不好，自从去了西塘以后，我们四个人的感情就感觉好奇怪..或许我们都以为自己是对的...","9.21听眼动仪的讲座，让帮忙带饭，我问雪姨和美丽猜猜给大妈带了啥，异口同声的回答：土豆西红柿，如此容易被人看透，到底什么时候吃腻呢？","9.22开了情侣空间，一直发表情，好傻b..呵呵哒~","9.23大妈说老师没找她，我说老师也没找我啊...吃饭的时候一直动她头发，我说你怎么没反应，她说她越反抗，我就越会动，我说大妈你真是太懂我了..回来我说大妈你来给我按摩，然后就来按了，好乖~","9.24大妈给黄气的，说她对所有男生是不是都这样...大妈趴在我肩膀上，我说大妈你是不是总是这样，她说，是啊，我就是这么轻浮~呵呵哒~","9.25看港囧，大妈那魔音的笑死，此起彼伏...哈哈，可是听说我笑更嗨。是这样的么~"];
+	for(var i=0;i<oli.length;i++)
+	{
+		oli[i].index=i;
+		oli[i].onmouseover=function()
+		{
+	      oshow3.innerHTML=odate[this.index];
+		}
+	}
+	//十月
+	var oli2=document.getElementById('u4').getElementsByTagName('li');
+	var oshow4=document.getElementById('u4').getElementsByTagName('li')[30];
+		var odate2=["9.26不是说呆宿舍无聊的么，结果还是呆了一整天..","9.27中秋，你在干嘛？学习么？","9.28雨..","9.30挤死人的大巴地铁取票..大妈说东南嫌弃她矮，对啊任何动态大妈会迫不及待地通知人..对喜欢人果然还是在乎每一句话..","10.9美丽说大妈，酸奶在，我们走楼梯吧，我也信以为真，大妈很开心地说美丽下次你也要这样，结果我看到美丽的一只有花一只没花的拖鞋，瞬间就秒懂了","10.10根大妈走着走着，大妈突然摸摸口袋说，怎么有瓜子，然后，然后就一路吃起来了，惊呆ing，几天前的？？","大妈跟我说让我以后拿盘子，她拿筷子...这么命令我...我说大妈你就不会多走几步路啊，她说我就要坐美丽旁边，不让你俩做一块~我也是醉了..好幼稚.","10.11大妈说我每次要走的时候就扭着屁股提醒别人我要走了，我刚放下垃圾桶，大妈扭过头，用手指指自己表示她也要走，让我等她..我秒懂..","10.13躲在电梯门口吓大妈，大妈又被吓到了，这是第几次了啊，她又在想事情","10.15大妈支支吾吾说要跟我说件事情，扯了半天，说罗要请看电影，我也是醉了，这是什么事啊...大妈说没衣服穿了，然后饭吃着的，走出食堂，三个人就逛福瑞德，三个人，钱没带手机没带的...还用别人的手机登支付宝付钱...","想起每次大妈决定要买衣服的时候就是要约会男人的时候，大妈都已经被我们看透了","大妈你走路一定要加在我跟美丽中间么，一定要构成一个凹字么","10.17 晚上十一点给打电话还没接，就知道还在约会啦~竟然说不紧张...见不熟的人 大妈第一次说不紧张","10.18大妈又删微博了，好low，发了又删，果然心里藏不住事情的，什么都想表达出来...哎呀终于学会放松，开始看电视剧了..","她很漂亮，大妈竟然开始追剧了...","10.21池师兄请吃饭，吃得太饱了..又开始看我人人了，大妈啊大妈 伤不起了..","10.22这是什么车啊~大妈说我最喜欢的车，，我说什么车，她说 你傻啊。。奥迪啊。。以后不是三轮就好了么...","10.25热，这是夏天的感觉吧，大妈进来","10.26吃完饭，大妈摇摆地走进来，看到小明，小明要死了吧，坐我板凳...哈哈哈哈我想起我的逗比史了》。。你也有今天？！！","大妈说形容一个人丑叫hou..我说那你叫卓houhou，不对，叫猪houhou，明文是猪houhou，密文是卓慧慧，经过加密算法，需要破译~","我们的故事，还在继续","未完","待续","第一首推荐的歌叫会痛的石头，单曲循环好久..","这里的冬天不下雪","大雪","大雪","大雪天","待续","待续","123"];
+	for(var i=0;i<oli2.length;i++)
+	{
+		oli2[i].index=i;
+		oli2[i].onmouseover=function()
+		{
+	      oshow4.innerHTML=odate2[this.index];
+		}
+	}
+	
+	
+	for(var i=0;i<oa.length;i++)
+	{
+		oa[i].index=i;
+		oa[i].onmouseover=function()
+		{
+			for(var i=0;i<oa.length;i++)
+			{
+				oa[i].className='';
+				oul[i].style.display='none';
+			}
+			oa[this.index].className='current';
+			oul[this.index].style.display='block';
+			orighthead.innerHTML=orightDate[this.index];
+		}
+	}
+	
+}
+</script>
+</head>
+
+<body>
+<div class="content">
+ <div class="title">
+   被时光移走的城市
+ </div>
+ <div class="calendar">
+   <div class="left">
+     <ul class="leftul">
+       <li ><a id="k" class="current" style="color:#0C9">初.夏.遇</a></li>
+       <li><a style="color:#F93">忆.入.秋</a></li>
+       <li><a style="color:#66F">冬.韵.夜</a></li>
+       <li><a style="color:#F9C">春.罄.欣</a></li>
+       <li><a style="color:#C69">不.再.见</a></li>
+     </ul> 
+   </div>
+   <div class="rightHead">
+      要有多难忘，才会念念不忘
+   </div>
+   <div class="calan">
+      <ul id="u1" class="date date1">
+         <li >哈，又看了上次生日给你做的网页，事实是，依然感动满满..我说，如果用心去做一件事情，还是可以很投入的...此刻，也是...时间好快..特意在首页加了个倒计时..每天就那么瞅瞅..一天天地减少...看出你的分量了么?!amazing的重要！..</li>
+         <li> 任何人，任何事，经历一个过程，总会慢慢熟悉。安之，乐之。事实证明直觉还是挺准的...一开始就想要去接近的人，还是努力让我靠近了...</li>
+         <li> 我说在医院一眼望到的名字，没错，就是她.你说：是我，就像我看到了你的名字一样，我早就知道了，冥冥之中，我俩是多么有缘分，这就是我为什么说，你就是另一个我，除了我没有你细心，没有你懂事，没有你胆小，其他都挺像的...有时候觉得我们挺像， 经历了这么久，还会觉得像么？好庆幸，是你...</li>
+         <li >2014.10.08...那天是你生日，也是你从家回来的日子，我说去接你，其实一直等电话..后来才知道..是个经常手机欠费的家伙..很多凑巧，你说：一个人呆寝室，你会恍惚发现，你还是一个人了..你也总是偶尔装下小忧郁..内心还是孤独的.</li>
+         <li >牛仔裤，帆布鞋，印象中的样子，依然是清晰可见...你没必要去追求所谓的成熟装扮..就这样才是真实的你..</li>
+        
+      </ul>
+      <ul id="u2" class="date date2">
+          <li >2014.12.12 超市挤成渣渣，带着我插队，好有经验，就是那个在开会的时候讲不出声的，却带着我做了好多以前没做过的事情..比如逃地铁票..是个奇女子..</li>
+          <li >2014.12.06去了我们都讨厌的医院--红十字..一起看了电影--匆匆那年，你看得眼泪汪汪...喜欢一个人喜欢到这种程度，我和小伙伴们都惊呆了...</li>
+         <li >2014.12.24平安夜，一起吃火锅，回来每人的任务是给大妈翻译，大妈的魅力可真是大啊</li>
+         <li >冬天织了条围巾，也算是展示你贤惠的一面了...对，所以你的名字可以叫...卓贤惠？@@</li>
+         <li >又被老师放鸽子...说了要请吃饭的，结果还是没请，卓慧傻b还中午不吃等着晚上的大餐的....什么叫期待越大，失望越大，就是这样的吧..</li>
+         <li >胖妹竟然吃药过敏吐了……老师开会，身体一直发抖……只是不能想象，一个人是该有多难熬。并不是个很依赖别人的人。想起很多类似的事情……某种程度上，经历好相似…</li>
+         <li>我能不能把我的脚伸进你的被窝，我能不能再你这里吹头发...我能不能...好呆萌的对话，我hold不住了，可还是想不停地说</li>
+      </ul>
+       <ul id="u3" class="date date3">
+         <li>1<img src="../newStart/indexImg/2.gif" /></li>
+         <li>2<img src="../newStart/indexImg/4.gif" /></li>
+         <li>3<img src="../newStart/indexImg/1.gif" /></li>
+         <li>4<img src="../newStart/indexImg/2.gif" /></li>
+         <li>5<img src="../newStart/indexImg/3.gif" /></li>
+         <li>6<img src="../newStart/indexImg/4.gif" /></li>
+         <li>7<img src="../newStart/indexImg/1.gif" /></li>
+         <li>8<img src="../newStart/indexImg/5.gif" /></li>
+         <li>9<img src="../newStart/indexImg/3.gif" /></li>
+         <li>10<img src="../newStart/indexImg/6.gif" /></li>
+         <li>11<img src="../newStart/indexImg/5.gif" /></li>
+         <li>12<img src="../newStart/indexImg/4.gif" /></li>
+         <li>13<img src="../newStart/indexImg/5.gif" /></li>
+         <li>14<img src="../newStart/indexImg/6.gif" /></li>
+         <li>15<img src="../newStart/indexImg/4.gif" /></li>
+         <li>16<img src="../newStart/indexImg/1.gif" /></li>
+         <li>17<img src="../newStart/indexImg/2.gif" /></li>
+         <li>18<img src="../newStart/indexImg/3.gif" /></li>
+         <li>19<img src="../newStart/indexImg/4.gif" /></li>
+         <li>20<img src="../newStart/indexImg/5.gif" /></li>
+         <li>21<img src="../newStart/indexImg/1.gif" /></li>
+         <li>22<img src="../newStart/indexImg/1.gif" /></li>
+         <li>23<img src="../newStart/indexImg/2.gif" /></li>
+         <li>24<img src="../newStart/indexImg/3.gif" /></li>
+         <li>25<img src="../newStart/indexImg/4.gif" /></li>
+         <li>26<img src="../newStart/indexImg/6.gif" /></li>
+         <li>27<img src="../newStart/indexImg/2.gif" /></li>
+         <li>28<img src="../newStart/indexImg/3.gif" /></li>
+         <li>29<img src="../newStart/indexImg/1.gif" /></li>
+         <li>30<img src="../newStart/indexImg/2.gif" /></li>
+         <li>31</li>
+      </ul>
+       <ul id="u4" class="date date4">
+        <li>1<img src="../newStart/indexImg/4.gif" /></li>
+         <li>2<img src="../newStart/indexImg/4.gif" /></li>
+         <li>3<img src="../newStart/indexImg/6.gif" /></li>
+         <li>4<img src="../newStart/indexImg/1.gif" /></li>
+         <li>5<img src="../newStart/indexImg/2.gif" /></li>
+         <li>6<img src="../newStart/indexImg/3.gif" /></li>
+         <li>7<img src="../newStart/indexImg/1.gif" /></li>
+         <li>8<img src="../newStart/indexImg/3.gif" /></li>
+         <li>9<img src="../newStart/indexImg/3.gif" /></li>
+         <li>10<img src="../newStart/indexImg/2.gif" /></li>
+         <li>11<img src="../newStart/indexImg/2.gif" /></li>
+         <li>12<img src="../newStart/indexImg/3.gif" /></li>
+         <li>13<img src="../newStart/indexImg/1.gif" /></li>
+         <li>14<img src="../newStart/indexImg/1.gif" /></li>
+         <li>15<img src="../newStart/indexImg/1.gif" /></li>
+         <li>16<img src="../newStart/indexImg/1.gif" /></li>
+         <li>17<img src="../newStart/indexImg/1.gif" /></li>
+         <li>18<img src="../newStart/indexImg/1.gif" /></li>
+         <li>19<img src="../newStart/indexImg/1.gif" /></li>
+         <li>20<img src="../newStart/indexImg/1.gif" /></li>
+         <li>21<img src="../newStart/indexImg/1.gif" /></li>
+         <li>22<img src="../newStart/indexImg/1.gif" /></li>
+         <li>23<img src="../newStart/indexImg/1.gif" /></li>
+         <li>24<img src="../newStart/indexImg/1.gif" /></li>
+         <li>25<img src="../newStart/indexImg/1.gif" /></li>
+         <li>26<img src="../newStart/indexImg/1.gif" /></li>
+         <li>27<img src="../newStart/indexImg/1.gif" /></li>
+         <li>28<img src="../newStart/indexImg/1.gif" /></li>
+         <li>29<img src="../newStart/indexImg/1.gif" /></li>
+         <li>30<img src="../newStart/indexImg/1.gif" /></li>
+         <li>31</li>
+      </ul>
+       <ul id="u5" class="date date5">
+        <img src="../newStart/indexImg/w.jpg" />
+      </ul>
+   </div>
+ </div>
+<div class="b">
+   <div class="b1"><img src="../newStart/indexImg/play.png" /></div>
+   <div class="b2"><img src="../newStart/indexImg/mission.png" /></div>
+   <div class="b3"><img src="../newStart/indexImg/touch.png" /></div>
+   <div class="aa"><a href="main.html">返回首页</a><img class="rt" src="../newStart/indexImg/allow.png" /><span class="line1"></span><span class="line2"></span><span class="line3"></span><span class="line4"></span></div>
+   <div class="bb"><a href="main.html">返回首页</a><img class="rt" src="../newStart/indexImg/allow.png" /><span class="line1"></span><span class="line2"></span><span class="line3"></span><span class="line4"></span></div>
+   <div class="cc"><a href="main.html">返回首页</a><img class="rt" src="../newStart/indexImg/allow.png" /><span class="line1"></span><span class="line2"></span><span class="line3"></span><span class="line4"></span></div>
+</div>
+</div>
+<embed src="music/春畑道哉 - 今日からずっと.mp3" width="292" height="43" hidden="true" loop="true"></embed>
+</body>
+</html>

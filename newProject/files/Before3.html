@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Remember</title>
+<style>
+@font-face
+{
+    font-family:xingkai;
+    font-style:normal;
+    font-weight:normal;
+    src:url(../newStart/fonts/remember/RS_XingKai.ttf);
+}
+body
+{
+	background: rgb(191,192,187);
+     font-family:xingkai;
+}
+}
+*
+{
+	margin:0;
+	padding:0;
+}
+a
+{
+	text-decoration: none;
+}
+.content
+{
+	width:100%;
+	height:2000px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.header
+{
+	width:100%;
+	height:60px;
+	position:absolute;
+	left:0;
+	top:0;
+ 
+	font-size:18px;
+     box-shadow: 2px 2px 10px rgba(0,0,0,.8);
+}
+.header ul
+{
+	position:absolute;
+	left:0;
+	top:-15px;
+
+}
+.header li
+{
+	float:left;
+	display:block;
+	margin:20px 25px;
+	text-align: center;
+	font-size: 25px;
+}
+.header li:hover,
+.header li a:hover
+{
+	cursor: pointer;
+}
+.header li:first-of-type
+{
+	margin-left:20px;
+	font-size: 40px;
+	color: purple;
+	margin-top: 10px;
+	text-align: center;
+	font-weight: 700;
+}
+.header li:nth-of-type(7)
+{
+	margin-left: 218px;
+	margin-top: 8px;	
+}
+.header li img
+{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+}
+.header li:nth-of-type(8)
+{
+	font-size: 14px;
+	margin-top: 30px;
+	color: blue;
+}
+/*旋转部分*/
+  #stage li
+        {
+            width: 128px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+            position: absolute;
+            bottom: 0;
+        }
+    #stage li:hover
+    {
+    	cursor: pointer;
+    }
+
+      #stage  li img
+        {
+            width: 128px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+            vertical-align: middle;
+        }
+
+       #stage li span
+        {
+            display: block;
+            width: 128px;
+            text-align: center;
+            color: #333;
+            font-size: 8px;
+        }
+
+        #stage
+        {
+
+            width: 900px;
+            min-height: 100px;
+            margin-left:-140px;
+            margin-right: auto;
+            padding: 100px 50px;
+            -webkit-perspective: 800px;
+            position: relative;
+            top: 40px;
+        }
+
+        #container
+        {
+        	list-style: none;
+            margin-top: 200px;
+            width: 128px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+            height: 100px;
+            margin-left: -64px;
+            -webkit-transition: -webkit-transform 1s;
+            transition: transform 1s;
+            -webkit-transform-style: preserve-3d;
+            position: absolute;
+            left: 50%;
+        }
+
+       #container li:nth-child(0)
+        {
+            -webkit-transform: rotateY(0deg) translateZ(300px);
+        }
+
+      #container  li:nth-child(1)
+        {
+            -webkit-transform: rotateY(40deg) translateZ(300px);
+        }
+
+        #container li:nth-child(2)
+        {
+            -webkit-transform: rotateY(80deg) translateZ(300px);
+        }
+
+        #container li:nth-child(3)
+        {
+            -webkit-transform: rotateY(120deg) translateZ(300px);
+        }
+
+        #container li:nth-child(4)
+        {
+            -webkit-transform: rotateY(160deg) translateZ(300px);
+        }
+
+        #container li:nth-child(5)
+        {
+            -webkit-transform: rotateY(200deg) translateZ(300px);
+        }
+
+       #container li:nth-child(6)
+        {
+            -webkit-transform: rotateY(240deg) translateZ(300px);
+        }
+
+        #container li:nth-child(7)
+        {
+            -webkit-transform: rotateY(280deg) translateZ(300px);
+        }
+
+        #container li:nth-child(8)
+        {
+            -webkit-transform: rotateY(320deg) translateZ(300px);
+        }
+
+        #container li:nth-child(9)
+        {
+            -webkit-transform: rotateY(360deg) translateZ(300px);
+        }
+#showMessage
+{
+	position: absolute;
+	width: 358px;
+	height: 100px;
+	right: -352px;
+	top: 251px;
+	background: pink;
+	z-index: 99;
+	box-shadow: 6px 9px 10px rgba(0,0,0,.8);
+	border-radius: 28%;
+	text-align: center;
+    white-space:normal; 
+    word-break:break-all; 
+    word-wrap:break-word;
+    padding: 40px;
+	transition:all ease-in-out .5s;
+	-webkit-transition:all ease-in-out .5s;
+    font-size: 22px;
+}
+.smeil
+{
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    top: 670px;
+   
+}
+.smeil .w
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    background: #096;
+    opacity: 0.3;
+    animation:bon ease-in 2s  -1s infinite;
+    -webkit-animation:bon ease-in 2s -1s infinite;
+}
+.smeil .s
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    background: #096;
+    opacity: 0.3;
+    animation:bon ease-in 2s infinite;
+    -webkit-animation:bon ease-in 2s infinite;
+}
+.smeil .r,
+.smeil .t
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    right: 20%;
+    top: 20%;
+    opacity: .3;
+    background: #096;
+}
+.smeil .r
+{
+     animation:bon ease-in 2s infinite;
+    -webkit-animation:bon ease-in 2s infinite;
+}
+.smeil .t
+{
+ animation:bon ease-in 2s  -1s infinite;
+    -webkit-animation:bon ease-in 2s -1s infinite;
+}
+.smeil .why
+{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    left: 45%;
+    top: 70%;
+    font-size: 45px;
+    font-weight: 900;
+}
+.smeil .why ul
+{
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.smeil .why ul li:nth-child(1)
+{
+    position: absolute;
+  
+     left: 39px;
+    top: 0;
+    transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transition:all .5s ease-in;
+    -webkit-transition:all .5s ease-in;
+}
+.smeil .why ul li:nth-child(2)
+{
+    position: absolute;
+     left: 12px;
+    top: 0px;
+    transform:rotate(-45deg);
+    -webkit-transform:rotate(-45deg);
+     transition:all .5s ease-in;
+    -webkit-transition:all .5s ease-in;
+}
+.why:hover
+{
+    cursor: pointer;
+}
+.why:hover #i
+{    
+  left: 12px;
+}
+.why:hover #p
+{
+    left: 39px;
+}
+
+@keyframes bon
+{
+    0%,100%
+    {
+        transform:scale(0);
+    }
+    50%
+    {
+        transform:scale(1);
+    }
+}
+@-webkit-keyframes bon
+{
+    0%,100%
+    {
+       -webkit-transform:scale(0);
+    }
+    50%
+    {
+        -webkit-transform:scale(1);
+    }
+}
+.haha
+{
+    width: 80%;
+    height: 400px;
+    position: absolute;
+    left: 10%;
+    top: 1400px;
+    border-radius: 10px;
+}
+.haha ul
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.haha ul:hover
+{
+    cursor: pointer;
+}
+.haha ul li
+{
+    float: left;
+    width: 4%;
+    height: 100%;
+    border-right: 1px solid white;
+    overflow: hidden;
+   
+}
+.haha ul li img
+{
+    float: left;
+    width: 200px;
+    height: 400px;
+}
+.haha ul .center
+{
+    width: 26%;
+    transition:all ease-in-out .5s;
+    -webkit-transition:all ease-in-out .5s;
+}
+.haha ul .center img
+{
+    width: 100%;
+    height: 100%;
+}
+#heiwa
+{
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    left: 0;
+    top: 1300px;
+    animation:woqu ease-in-out 1s infinite;
+    -webkit-animation:woqu ease-in-out 1s infinite;
+}
+@keyframes woqu
+{
+    0%
+    {
+        color:#699;
+        font-size:30px;
+    }
+    20%
+    {
+        color:#6C6;
+        font-size:32px;
+    }
+    40%
+    {
+        color:#F93;
+        font-size:34px;
+    }
+    60%
+    {
+        color:#F9C;
+        font-size:36px;
+    }
+    80%
+    {
+        color:#936;
+        font-size:38px;
+    }
+    100%
+    {
+        color:#F33;
+        font-size:40px;
+    }
+}
+@-webkit-keyframes woqu
+{
+    
+   0%
+    {
+        color:#699;
+        font-size:30px;
+    }
+    20%
+    {
+        color:#6C6;
+        font-size:32px;
+    }
+    40%
+    {
+        color:#F93;
+        font-size:34px;
+    }
+    60%
+    {
+        color:#F9C;
+        font-size:36px;
+    }
+    80%
+    {
+        color:#936;
+        font-size:38px;
+    }
+    100%
+    {
+        color:#F33;
+        font-size:40px;
+    }
+}
+</style>
+<script src="css/jquery.js">
+</script>
+<script>
+window.onload=function()
+{
+	var oshowMess=document.getElementById('showMessage');
+var data=["小时候你绝对是个安静的美男子，被你帅倒了，亲爱的~感觉小时候挺高的，怎么到现在就1.48了？！",
+    "青岛啤酒节么？是不是把喝醉了~难怪那么能喝酒..你这个姿势也是够够的~",
+    "嘿嘿，某头又开始自恋了...头发貌似还不错..0.0完美的美图秀秀，逆袭成功..魅力指数五颗星~",
+    "好刻苦的说，果然是慧学霸，不能比不能比啊.甘拜下风~",
+    "看样子是拉行李来学校咯，那么问题来了，此刻还不忘拍照的~你肯定会说，这么丑..好吧~除了刘欢照你还有丑照在我手啊~",
+    "Barbecue爽不爽...",
+    "说是织的第一条围巾.至此你可以取名叫卓贤惠..虽然围巾丑了点，哈哈，我又说实话了，不好意思啊~",
+    "宋城拍的,师兄成为我们的背景啦啦啦啦~发现每次去哪里玩，总有的是我俩的自拍~哈",
+    "其实不知道里面到底有没有...哈哈..算全家福嘛..  不好意思又偷照片了~是不是故意的，让你的照片同步到我手机..."];
+	var color=['#F99','#69F','#FC3', '#C96', '#0C6', '#6CC', '#F6C','#666',"purple"];
+	var w;
+    var ha=document.getElementsByClassName('why')[0];
+	var transform = function (element, value, key)
+	{
+		key = key || "Transform";
+		["Moz", "O", "Ms", "Webkit", ""].forEach(function (prefix)
+		{
+			element.style[prefix + key] = value;
+		});
+
+		return element;
+	}
+	$(function ()
+	{
+		var deg = -40 , i = 1;
+		$("#container").click(function ()
+		{
+			transform($(this)[0], "rotateY(" + (deg * i++) + "deg)");
+			if(i%9==1)
+			{
+				w=8;
+			}
+			if(i%9==2)
+			{
+				w=0;
+			}
+			if(i%9==3)
+			{
+				w=1;
+			}
+			if(i%9==4)
+			{
+				w=2;
+			}
+			if(i%9==5)
+			{
+				w=3;
+			}
+			if(i%9==6)
+			{
+				w=4;
+			}
+			if(i%9==7)
+			{
+				w=5;
+			}
+			if(i%9==8)
+			{
+				w=6;
+			}
+			if(i%9==0)
+			{
+				w=7;
+			}
+			oshowMess.innerHTML=data[w];
+			oshowMess.style.background=color[w];
+		});
+	});
+    /*相册展开效果*/
+  
+    var odiv=document.getElementsByClassName('haha')[0];
+     var oli=odiv.getElementsByTagName('li');
+    var current=1;
+    //div经过的时候，判断是哪个li是最后经过的，用current来记录是哪个li
+    odiv.onmouseover=function()
+    {
+     for(var i=0;i<oli.length;i++)
+     {
+         oli[i].index=i;
+         oli[i].onmouseover=function()
+         {
+             for(var i=0;i<oli.length;i++)
+            {
+                oli[i].className='';
+            }
+             oli[this.index].className='center';
+            current=this.index;
+         }
+         oli[i].onmouseout=function()
+         {
+            for(var i=0;i<oli.length;i++)
+            {
+                oli[i].className='';
+            }
+              
+         }
+     }
+    }
+    odiv.onmouseout=function()
+    {
+        for(var i=0;i<oli.length;i++)
+        {
+            oli[i].className='';
+        }
+        oli[current].className='center';
+    }
+}
+</script>
+<script type="text/javascript">	
+</script>
+</head>
+
+<body>
+<div class="content">
+ <div class="header">
+    <ul>
+      <li>Soul</li>
+      <li><a href="Before3.html">主页</a></li>
+      <li><a href="#">我的资料</a></li>
+      <li><a href="#">我的相册</a></li>
+      <li><a href="#">说说</a></li>
+       <li><a href="main.html">返回首页</a></li>
+      <li><img src="../newStart/picturesRun/ima.png" /></li>
+      <li>流浪不停,少年与谁</li>
+    </ul>
+ </div>
+ <div id="stage">
+    <ul id="container">
+
+       <li><img src="../newStart/picturesRun/55.jpg" /><span>英俊童年</span></li>
+        <li><img src="../newStart/picturesRun/11.jpg" /><span>啤酒节</span></li>
+        <li><img src="../newStart/picturesRun/22.jpg" /><span>自拍high起</span></li>
+        <li><img src="../newStart/picturesRun/77.jpg" /><span>挑灯夜战</span></li>
+        <li><img src="../newStart/picturesRun/33.jpg" /><span>Head for Hdu</span></li>
+        <li><img src="../newStart/picturesRun/66.jpg" /><span>Barbecue</span></li>
+        <li><img src="../newStart/picturesRun/88.jpg" /><span>织围巾</span></li>
+        <li><img src="../newStart/picturesRun/99.jpg" /><span>宋城High</span></li>
+        <li><img src="../newStart/picturesRun/44.jpg" /><span>Family</span></li>
+    </ul>
+    <div id="showMessage"><br/><br/>点击左边旋转有惊喜哟~</div>
+</div>
+<div class="smeil">
+    <div class="w"></div>
+    <div class="s"></div>
+    <div class="r"></div>
+    <div class="t"></div>
+    <div class="why">
+        <ul>
+            <li id="i">一</li>
+            <li id="p">一</li>
+        </ul>
+    </div>
+</div>
+<div class="haha">
+   <ul>
+       <li><img src="../newStart/picturesRun/111.jpg "></li>
+     <li><img src="../newStart/picturesRun/222.jpg "></li>
+     <li><img src="../newStart/picturesRun/333.jpg "></li>
+     <li><img src="../newStart/picturesRun/444.jpg "></li>
+     <li><img src="../newStart/picturesRun/555.jpg "></li>
+     <li><img src="../newStart/picturesRun/666.jpg "></li>
+     <li><img src="../newStart/picturesRun/777.jpg "></li>
+     <li><img src="../newStart/picturesRun/888.jpg "></li>
+     <li><img src="../newStart/picturesRun/999.jpg "></li>
+      <li class="center"><img src="../newStart/picturesRun/101010.jpg "></li>
+      <li><img src="../newStart/picturesRun/111111.jpg "></li>
+      <li><img src="../newStart/picturesRun/121212.jpg "></li>
+      <li><img src="../newStart/picturesRun/131313.jpg "></li>
+      <li><img src="../newStart/picturesRun/141414.jpg "></li>
+      <li><img src="../newStart/picturesRun/151515.jpg "></li>
+      <li><img src="../newStart/picturesRun/161616.jpg "></li>
+      <li><img src="../newStart/picturesRun/171717.jpg "></li>
+      <li><img src="../newStart/picturesRun/181818.jpg "></li>
+      <li><img src="../newStart/picturesRun/191919.jpg "></li>
+   </ul>
+</div>
+<div id="heiwa">吃货,逗比是怎么练成的？</div>
+</div>
+<embed src="music/春畑道哉 - a song for love.mp3" width="292" height="43" hidden="true" loop="true"></embed>
+</body>
+</html>

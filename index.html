@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>许一片星空</title>
+</head>
+<style>
+@font-face {
+	font-family: kitty;
+	src: url(newProject/newStart/fonts/kittyyuanshimaomizhongwen.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+#canvas {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	font-family: kitty;
+}
+#what {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	left: 64%;
+	top: 11%;
+	z-index: 222;
+}
+#what img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+#how {
+	position: absolute;
+	width: 300px;
+	height: 200px;
+	animation: k ease-in-out 4s   forwards;
+	-webkit-animation: k ease-in-out 4s  forwards;
+}
+#content {
+	position: absolute;
+	font-family: kitty;
+	width: 700px;
+	height: 100px;
+	font-size: 50px;
+	left: 27%;
+	top: 84%;
+	text-shadow: 5px 5px 3px black;
+	animation: co ease-in-out 2s infinite;
+	-webkit-animation: co ease-in-out 2s infinite;
+}
+ @keyframes co {
+ 0% {
+ color:#FF00FF;
+}
+ 20% {
+ color:#FF79BC;
+}
+ 40% {
+ color:#FF2D2D;
+}
+ 60% {
+color:#FF8000;
+}
+ 80% {
+ color:#FFE153;
+}
+ 100% {
+color:#9AFF02;
+}
+}
+ @-webkit-keyframes co {
+ 0% {
+ color:#FF00FF;
+}
+ 20% {
+ color:#FF79BC;
+}
+ 40% {
+ color:#FF2D2D;
+}
+ 60% {
+color:#FF8000;
+}
+ 80% {
+ color:#FFE153;
+}
+ 100% {
+color:#9AFF02;
+}
+}
+@keyframes k {
+ from {
+ top:-10%;
+ left: 30%;
+ transform:rotate(0deg) scale(0.5, 0.5);
+}
+to {
+	top: 70%;
+	left: 78%;
+	transform: rotate(360deg) scale(1, 1);
+}
+}
+@-webkit-keyframes k {
+ from {
+ top:-10%;
+ left: 30%;
+ -webkit-transform:rotate(0deg) scale(0.5, 0.5);
+}
+to {
+	top: 70%;
+	left: 78%;
+	-webkit-transform: rotate(360deg) scale(1, 1);
+}
+}
+#how img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+#how:hover {
+	cursor: pointer;
+}
+</style>
+<body>
+<canvas id="canvas"></canvas>
+<div id="content">许你一片星空，望你笑靥如花</div>
+<div id="what"><img src="newProject/newStart/indexImg/dong1.gif"/></div>
+<a href="newProject/Index2.html">
+<div id="how"><img src="newProject/newStart/indexImg/wo.gif"/></div>
+</a> 
+<embed src="newProject/files/music/石进 - 被时光移动的城市.mp3" width="292" height="43" hidden="true" loop="true"></embed>
+<script type="text/javascript">
+	window.onload=function()
+	{
+	var canvas=document.getElementById('canvas');
+	var context=canvas.getContext('2d');
+     canvas.width=document.documentElement.clientWidth||document.body.clientWidth;
+     canvas.height=document.documentElement.clientHeight||document.body.clientHeight;
+     var skyColor=context.createLinearGradient(0,0,0,canvas.height);/*从原点到底部的竖渐变*/
+      skyColor.addColorStop(0.0,'black');
+     skyColor.addColorStop(1.0,'#035');
+     context.fillStyle=skyColor;
+     context.fillRect(0,0,canvas.width,canvas.height);
+     for(var i=0;i<250;i++)
+     {
+     	var R=Math.random()*5+5;
+           var x=Math.random()*canvas.width;
+           var y=Math.random()*canvas.height*0.65;
+           var rot=Math.random()*360;
+        drawStar(context,x,y,R,rot);
+     }
+     // fillMoon(cxt,2,900,200,100,30);
+
+    fillMoon(context,2,900,200,100,30);
+    drawLand(context);
+    // var co=context.createLinearGradient(350,750,350,canvas.height);
+    // co.addColorStop(0.0,'orange');
+    // co.addColorStop(0.2,'#FF8000');
+    // co.addColorStop(0.4,'#FFD306');
+    // co.addColorStop(0.6,'#FFDC35');
+    // co.addColorStop(0.8,'#FFE153');
+    // co.addColorStop(1,'#FFFF37');
+
+    // context.fillStyle=co;
+    // context.shadowColor="black";
+    // context.shadowOffsetX=8;
+    // context.shadowOffsetY=8;
+    // context.shadowBlur=5;
+    // context.font="bolder 50px Arial Black";
+    // context.fillText("许你一片星空，望你笑靥如花",350,750);
+   }
+   function drawLand(cxt)
+   {
+    cxt.save();
+    cxt.beginPath();
+    cxt.moveTo(0,600);
+    cxt.bezierCurveTo(540,400,660,800,canvas.width,600);
+    cxt.lineTo(canvas.width,canvas.height-2);
+    cxt.lineTo(0,canvas.height-2);
+    var hei=cxt.createLinearGradient(0,800,0,0);
+    hei.addColorStop(0.0,'#030');
+    hei.addColorStop(1.0,'#580');
+    cxt.fillStyle=hei;
+    cxt.fill();
+    cxt.closePath();
+    cxt.restore();
+   }
+   function drawStar(cxt,x,y,R,rot)
+   {
+   	   cxt.save();
+   	   cxt.translate(x,y);
+   	   cxt.rotate(rot/180*Math.PI);
+   	   cxt.scale(R,R);
+   	   starPath(cxt);
+   	   cxt.fillStyle="#FFD306";
+   	   // cxt.strokeStyle="red";
+   	   // cxt.lineWidth=3;
+   	   // cxt.lineJoin='round'
+   	   cxt.fill();
+   	  // cxt.stroke();
+   	   cxt.restore();
+   }
+   function starPath(cxt)
+   {
+   	cxt.beginPath();
+   	for(var i=0;i<5;i++)
+   	{
+        cxt.lineTo(Math.cos((18+i*72)/180*Math.PI),-Math.sin((18+72*i)/180*Math.PI));
+           cxt.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.5,-Math.sin((54+72*i)/180*Math.PI)*0.5);
+   	}
+   	cxt.closePath();
+   }
+/*月亮*/
+   function fillMoon(cxt,d,x,y,r,rot,color)
+  {
+       cxt.save();
+       cxt.translate(x,y);
+       cxt.scale(r,r);
+       cxt.rotate(rot/180*Math.PI);
+       drawMoon(cxt,d);
+       cxt.fillStyle=color||"#FFD306";
+       cxt.fill();
+       cxt.restore();
+  }
+  function drawMoon(cxt,d)
+  {
+    cxt.beginPath();
+    cxt.arc(0,0,1,Math.PI/2,1.5*Math.PI,true);
+    cxt.moveTo(0,-1);
+    cxt.arcTo(d,0,0,1,dis(0,-1,d,0)/d);
+    cxt.closePath();
+  }
+  function dis(x1,y1,x2,y2)
+  {
+    return Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+  }
+</script>
+</body>
+</html>

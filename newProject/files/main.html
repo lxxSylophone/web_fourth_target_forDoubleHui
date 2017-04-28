@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>一米阳光</title>
+<style>
+@font-face
+{
+	font-family:bird;
+	font-style:normal;
+	font-weight:normal;
+	src:url(../newStart/fonts/Birds.ttf);
+}
+@font-face
+{
+	font-family: bear;
+	font-style: normal;
+	font-weight: normal;
+	src:url(../newStart/fonts/main/DroidSans.ttf);
+}
+*
+{
+	margin:0;
+	padding:0;
+	font-family: bear;
+}
+body
+{
+	background:url(../newStart/indexImg/2.jpg) no-repeat center center;
+}
+.content
+{
+	width:80%;
+	height:1000px;
+	overflow:hidden;
+	box-shadow:5px 5px 20px rgba(0,0,0,0.5),-5px -5px 20px rgba(0,0,0,0.5);
+	border-color:#F99;
+	overflow:hidden;
+	position:relative;
+	margin:10px auto;
+}
+.logo
+{
+	font-family:bird;
+	color:#FC6;
+	font-size:58px;
+	font-weight:700;
+	position:absolute;
+	left:55px;
+	top:37px;
+}
+.header
+{
+	width:100%;
+	position:absolute;
+	left:50px;
+	top:120px;
+}
+.nav
+{
+	width:100%;
+	list-style:none;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.nav a
+{
+	text-decoration:none;
+	padding:15px 32px 15px 30px;
+	line-height:20px;
+	height:20px;
+	display:block;
+	font-size:20px;
+	color:white;
+	cursor:pointer;
+}
+.nav>li
+{
+	float:left;
+	display:block;
+	position:relative;
+	border-right:1px solid white;
+	z-index:999;
+}
+.nav >li:last-child
+{
+	border-right:none;
+}
+.threeD
+{
+	perspective:200px;
+	-webkit-perspective:200px;
+	-moz-perspective:200px;
+	-ms-perspective:200px;
+	-o-perspective:200px;
+	position:relative;
+}
+.box
+{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	display:block;
+	
+	transform-style:preserve-3d;
+	-webkit-transform-style:preserve-3d;
+	-moz-transform-style:preserve-3d;
+	-ms-transform-style:preserve-3d;
+	-o-transform-style:preserve-3d;
+	
+	transform:translateZ(-25px);
+	-webkit-transform:translateZ(-25px);
+	-moz-transform:translateZ(-25px);
+	-ms-transform:translateZ(-25px);;
+	-o-transform:translateZ(-25px);
+	
+	
+	transition:all .3s ease-out;
+	-moz-transition:all .3s ease-out;
+	-ms-transition:all .3s ease-out;
+	-o-transition:all .3s ease-out;
+	-webkit-transition:all .3s ease-out;
+	
+}
+.threeD:hover .box
+{
+	transform:translateZ(-25px) rotateX(90deg);
+	-moz-transform:translateZ(-25px) rotateX(90deg);
+	-ms-transform:translateZ(-25px) rotateX(90deg);
+	-o-transform:translateZ(-25px) rotateX(90deg);
+	-webkit-transform:translateZ(-25px) rotateX(90deg)
+}
+.front,.back
+{
+	position:absolute;
+	left:0;
+	top:0;
+	padding:15px 32px 15px 30px;
+	width:100%;
+	height:100%;
+	display:block;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	border-radius:7px;
+}
+.front
+{
+		background:url(../newStart/indexImg/g.png);
+    transform:rotateX(0deg) translateZ(25px);    
+	-webkit-transform:rotateX(0deg) translateZ(25px);
+	-moz-transform:rotateX(0deg) translateZ(25px);
+	-o-transform:rotateX(0deg) translateZ(25px);
+	-ms-transform:rotateX(0deg) translateZ(25px);
+}
+.back
+{
+	background:linear-gradient(to left bottom ,#FF8800,#FFAA33,#FFCC22,#FFDD55,#FFBB00);
+	transform:rotateX(-90deg) translateZ(25px);
+	-webkit-transform:rotateX(-90deg) translateZ(25px)  ;
+	-moz-transform:rotateX(-90deg) translateZ(25px);
+	-o-transform:rotateX(-90deg) translateZ(25px);
+	-ms-transform:rotateX(-90deg) translateZ(25px);
+}
+.w
+{
+	list-style:none;
+	position:absolute;
+	width:180px;
+	height:40px;
+	line-height:40px;
+	backface-visibility:hidden;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+		-o-backface-visibility:hidden;
+			-ms-backface-visibility:hidden;
+	
+	transform:rotateX(-90deg);
+	-webkit-transform:rotateX(-90deg);
+	-moz-transform:rotateX(-90deg);
+	-o-transform:rotateX(-90deg);
+	-ms-transform:rotateX(-90deg);
+	
+	transition:all .3s ease-out;
+	-moz-transition:all .3s ease-out;
+	-ms-transition:all .3s ease-out;
+	-o-transition:all .3s ease-out;
+	-webkit-transition:all .3s ease-out;
+	
+}
+.nav li:hover ul
+{
+	transform:rotateX(0deg);
+	-webkit-transform:rotateX(0deg);
+	-moz-transform:rotateX(0deg);
+	-o-transform:rotateX(0deg);
+	-ms-transform:rotateX(0deg);
+}
+/*中间的旋转轮播*/
+.boy
+{
+	position:absolute;
+	width:97%;
+	height:450px;
+	left:16px;
+	top:200px;
+	overflow:hidden;
+	border-radius:10px;
+	box-shadow:2px 2px 5px rgba(0,0,0,.5),-2px -2px 5px rgba(0,0,0,.5);
+}
+.left
+{
+	position:absolute;
+	left:0;
+	top:10%;
+	width:28%;
+	height:80%;
+	overflow:hidden;
+	  transform:perspective(900px) rotateY(60deg);
+	  -webkit-transform:perspective(900px) rotateY(60deg);
+}
+.boy:hover
+{
+	cursor:pointer;
+}
+.center img
+{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	border-radius:10px;
+	opacity:0;
+	transition:all ease-in 1.2s;
+	-webkit-transition:all ease-in 1.2s;
+	-moz-transition:all ease-in 1.2s;
+	-ms-transition:all ease-in 1.2s;;
+	-o-transition:all ease-in 1.2s;;
+}
+.left img
+{
+	position:absolute;
+	left:0;
+	top:0;
+	width:220%;
+	height:150%;
+	opacity:0;
+	transition:all ease-in .6s;
+	-webkit-transition:all ease-in .6s;
+	-moz-transition:all ease-in .6s;;
+	-ms-transition:all ease-in .6s;
+	-o-transition:all ease-in .6s;
+	border-radius:10px;
+}
+.right img
+{
+	position:absolute;
+	left:0;
+	top:0;
+	width:220%;
+	height:150%;
+	opacity:0;
+	transition:all ease-in 1.5s;
+	-webkit-transition:all ease-in 1.5s;
+	-moz-transition:all ease-in 1.5s;;
+	-ms-transition:all ease-in 1.5s;
+	-o-transition:all ease-in 1.5s;
+	border-radius:10px;
+}
+.right
+{
+	position:absolute;
+	right:0;
+	top:10%;
+	width:28%;
+	height:80%;
+	overflow:hidden;
+	  transform:perspective(900px) rotateY(-60deg);
+	  -webkit-transform:perspective(900px) rotateY(-60deg);
+	   -moz-transform:perspective(900px) rotateY(-60deg);
+	   -ms-transform:perspective(900px) rotateY(-60deg);
+	   -o-transform:perspective(900px) rotateY(-60deg);
+}
+.center
+{
+	position:absolute;
+	left:20%;
+	top:1%;
+	width:60%;
+	height:98%;
+	overflow:hidden;
+}
+.na
+{
+	position:absolute;
+	width:16%;
+	height:5%;
+	left:42%;
+	top:90%;
+	list-style:none;
+}
+.na li
+{
+	float:left;
+	width:10px ;
+	height:10px;
+	border-radius:100%;
+	background:#F93;
+	margin:6px;
+}
+.na li:hover
+{
+	cursor:pointer;
+}
+.beer
+{
+	width:95%;
+	height:200px;
+	position:absolute;
+	bottom:0px;
+	left:6%;
+}
+.hei
+{
+	list-style:none;
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+}
+.hei li
+{
+	width:14%;
+	height:180px;
+	margin-right:2%;
+	float:left;
+	position:relative;
+	box-shadow:2px 2px 6px rgba(0,0,0,.6),-2px -2px 6px rgba(0,0,0,.6);
+}
+.hei li a
+{
+	position:absolute;
+	left:5%;
+	top:8%;
+	width:90%;
+	height:90%;
+}
+
+.hei li:nth-of-type(1)
+{
+background:#FC9;
+}
+.hei li:nth-of-type(2)
+{
+ background:#6FC;
+}
+.hei li:nth-of-type(3)
+{
+	background:#69C;
+}
+.hei li:nth-of-type(4)
+{
+	background:#F6C;
+}
+.hei li:nth-of-type(5)
+{
+	background:#3C6;
+}
+.hei li:nth-of-type(6)
+{
+	background:#F90;
+}
+.hei a:after
+{
+	content:'';
+	position:absolute;
+	width:100px;
+	height:100px;
+	border-radius:50%;
+	bottom:100%;
+	left:50%;
+	margin-left:-50px;
+	border:1px solid green;
+		animation:ro ease .8s infinite;
+	-webkit-animation:ro ease .8s infinite;
+}
+@keyframes ro
+{
+	from
+	{
+		
+		transform:rotate(-40deg);
+		-webkit-transform:rotate(-40deg) ;
+	}
+	to
+	{
+		
+		transform:rotate(40deg)  ;
+		-webkit-transform:rotate(40deg)  ;
+	}
+}
+@-webkit-keyframes ro
+{
+	from
+	{
+		
+		transform:rotate(-40deg);
+		-webkit-transform:rotate(-40deg) ;
+	}
+	to
+	{
+		
+		transform:rotate(40deg)  ;
+		-webkit-transform:rotate(40deg)  ;
+	}
+}
+
+
+@keyframes up
+{
+	from
+	{
+		
+		transform:translateY(-20px);
+		-webkit-transform:translateY(-20px) ;
+	}
+	to
+	{
+		
+			transform:translateY(0px)
+		-webkit-transform:translateY(0px) ;
+	}
+}
+@-webkit-keyframes up
+{
+from
+	{
+		
+		transform:translateY(-20px);
+		-webkit-transform:translateY(-20px) ;
+	}
+	to
+	{
+			transform:translateY(0px);
+		-webkit-transform:translateY(0px) ;
+	}
+}
+
+@keyframes down
+{
+	from
+	{
+		
+		transform:translateY(20px);
+		-webkit-transform:translateY(20px) ;
+	}
+	to
+	{
+		
+			transform:translateY(0px)
+		-webkit-transform:translateY(0px) ;
+	}
+}
+@-webkit-keyframes down
+{
+from
+	{
+		
+		transform:translateY(20px);
+		-webkit-transform:translateY(20px) ;
+	}
+	to
+	{
+			transform:translateY(0px);
+		-webkit-transform:translateY(0px) ;
+	}
+}
+.hei li:nth-of-type(1) a:after
+{
+	background:url(../newStart/picturesRun/1.png);
+	border:3px solid #096;
+	box-shadow:2px 2px 4px rgba(0,0,0,.6),-2px -2px 4px rgba(0,0,0,.6);
+	animation:up ease .8s infinite;
+	-webkit-animation:up ease .8s infinite;
+}
+.hei li:nth-of-type(2) a:after
+{
+	background:url(../newStart/picturesRun/2.png);
+	border:3px solid #096;
+	box-shadow:2px 2px 4px rgba(0,0,0,.6),-2px -2px 4px rgba(0,0,0,.6);
+	animation:ro ease .8s infinite;
+	-webkit-animation:ro ease .8s infinite;
+}
+.hei li:nth-of-type(3) a:after
+{
+	background:url(../newStart/picturesRun/3.png);
+	animation:down ease .8s infinite;
+	-webkit-animation:down ease .8s infinite;
+}
+.hei li:nth-of-type(4) a:after
+{
+	background:url(../newStart/picturesRun/6.png);
+	border:3px solid #096;
+	box-shadow:2px 2px 4px rgba(0,0,0,.6),-2px -2px 4px rgba(0,0,0,.6);
+	animation:up ease .8s infinite;
+	-webkit-animation:up ease .8s infinite;
+}
+.hei li:nth-of-type(5) a:after
+{
+	background:url(../newStart/picturesRun/5.png);
+	border:3px solid #096;
+	box-shadow:2px 2px 4px rgba(0,0,0,.6),-2px -2px 4px rgba(0,0,0,.6);
+	animation:ro ease .8s infinite;
+	-webkit-animation:ro ease .8s infinite;
+}
+.hei li:nth-of-type(6) a:after
+{
+	background:url(../newStart/picturesRun/4.png);
+	border:3px solid #096;
+	box-shadow:2px 2px 4px rgba(0,0,0,.6),-2px -2px 4px rgba(0,0,0,.6);
+	animation:down ease .8s infinite;
+	-webkit-animation:down ease .8s infinite;
+}
+</style>
+<script>
+window.onload=function()
+{
+	var odiv=document.getElementsByClassName('boy')[0];
+	var oli=document.getElementsByClassName('na')[0].getElementsByTagName('li');
+	var ocenter=document.getElementsByClassName('center')[0];
+	var oleft=document.getElementsByClassName('left')[0];
+	var oright=document.getElementsByClassName('right')[0];
+	var oimg1=oleft.getElementsByTagName('img');
+	var oimg2=ocenter.getElementsByTagName('img');
+	var oimg3=oright.getElementsByTagName('img');
+	var timer=null;
+	var t=0;
+	odiv.onmouseover=function()
+	{
+		clearInterval(timer);
+		for(var i=0;i<oli.length;i++)
+	    {
+		  oli[i].index=i;
+		  oli[i].onmouseover=function()
+		  {
+         	change(this.index);
+			t=this.index;
+		  }
+	     }
+	}
+	odiv.onmouseout=function()
+	{
+	  timer=setInterval(autoPlay,4000);
+	}
+	if(timer)
+	{
+		clearInterval(timer);
+		timer=null;
+	}
+	timer=setInterval(autoPlay,4000);
+	function autoPlay()
+	{
+		t++;
+		if(t>oli.length-1)
+		t=0;
+		change(t);
+	}
+
+	function change(w)
+	{
+			for(var i=0;i<oli.length;i++)
+			{
+				oli[i].style.background='#F93';
+				oimg1[i].style.opacity=0;
+				oimg2[i].style.opacity=0;
+				oimg3[i].style.opacity=0;
+			}
+			oli[w].style.background='green';
+			oimg2[w].style.opacity=1;
+			if(w==0)
+			{
+				oimg1[1].style.opacity=1;
+			    oimg3[oli.length-1].style.opacity=1;
+			}
+		  else	if(w==1)
+			{
+				oimg1[w+1].style.opacity=1;
+				oimg3[w-1].style.opacity=1;
+			}
+		else	if(w==(oli.length-1))
+			{
+				oimg1[0].style.opacity=1;
+				oimg3[w-1].style.opacity=1;
+			}
+			
+			else
+			{
+			oimg1[w+1].style.opacity=1;
+			oimg3[w-1].style.opacity=1;
+			}
+		}
+	
+}
+</script>
+</head>
+
+<body>
+<div class="content">
+ <div class="logo">  
+  Floating Dream
+  </div>
+   <div class="header">
+       <ul class="nav">
+          <li>
+           <a href="main.html" class="threeD">
+             幸福的地图
+             <span class="box">
+                <span class="front">
+                  幸福的地图
+                </span>
+                <span class="back">静谧の杭城</span>
+             </span>
+           </a>
+         </li>
+         
+          <li>
+           <a href="photos.html" class="threeD">
+            岁月的风华
+             <span class="box">
+                <span class="front">
+                  岁月缝花
+                </span>
+                <span class="back">手写的从前</span>
+             </span>
+           </a>
+         </li>
+         
+          <li>
+           <a href="calendar.html" class="threeD">
+             花开半夏
+             <span class="box">
+                <span class="front">
+                  花开半夏
+                </span>
+                <span class="back">花开半夏</span>
+             </span>
+           </a>
+         </li>
+         
+          <li>
+           <a href="Before3.html" class="threeD">
+             时光之书
+             <span class="box">
+                <span class="front">
+                  时光之书
+                </span>
+                <span class="back">时光之书</span>
+             </span>
+           </a>
+          <ul class="w">
+             <li>
+                <a href="Before3.html" class="threeD">
+             似水已流年
+             <span class="box">
+                <span class="front">
+                  似水已流年
+                </span>
+                <span class="back">似水已流年</span>
+             </span>
+           </a>
+             </li>
+             <li>
+             <a href="Before3.html" class="threeD">
+             转身堪回首
+             <span class="box">
+                <span class="front">
+                  转身堪回首
+                </span>
+                <span class="back">转身堪回首</span>
+             </span>
+           </a>
+             </li>
+          </ul>
+         </li>
+         <li>
+     <a href="Imaginary.html" class="threeD">
+     联系我
+     <span class="box">
+     <span class="front">联系我</span>
+     <span class="back">联系我</span>
+     </span>
+     </a>
+    </li>
+     <li>
+           <a href="../../index.html" class="threeD">
+             返回首页
+             <span class="box">
+                <span class="front">
+                  返回首页
+                </span>
+                <span class="back">返回首页</span>
+             </span>
+           </a>
+         </li>
+     </ul>
+   </li> 
+       </ul>
+   </div>
+   <div class="boy">
+        <div class="left">
+          <img src="../newStart/picturesRun/0.jpg" />
+            <img style="opacity:1" src="../newStart/picturesRun/1.jpg" />
+          <img src="../newStart/picturesRun/2.jpg" />
+          <img src="../newStart/picturesRun/3.jpg" />
+          <img src="../newStart/picturesRun/4.jpg" />
+          <img src="../newStart/picturesRun/5.jpg" />
+          <img  src="../newStart/picturesRun/6.jpg" />
+        </div>
+        <div class="center">
+       <img style="opacity:1" src="../newStart/picturesRun/0.jpg" />
+        <img src="../newStart/picturesRun/1.jpg" />
+          <img src="../newStart/picturesRun/2.jpg" />
+          <img src="../newStart/picturesRun/3.jpg" />
+          <img src="../newStart/picturesRun/4.jpg" />
+          <img src="../newStart/picturesRun/5.jpg" />
+          <img src="../newStart/picturesRun/6.jpg" />
+        </div>
+        <div class="right">
+   
+        <img src="../newStart/picturesRun/0.jpg" />
+        <img src="../newStart/picturesRun/1.jpg" />
+          <img src="../newStart/picturesRun/2.jpg" />
+          <img src="../newStart/picturesRun/3.jpg" />
+          <img src="../newStart/picturesRun/4.jpg" />
+          <img src="../newStart/picturesRun/5.jpg" />
+             <img style="opacity:1" src="../newStart/picturesRun/6.jpg" />
+        </div>
+        <ul class="na">
+           <li style="background:green"></li>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+           <li></li>
+        </ul>
+   </div>
+ <div class="beer">
+    <ul class="hei">
+      <li><a style="color:purple">大妈大妈，我们能换种走路的姿势么，感觉这样像被挟持的诶...你的习惯，我的习惯...然后是慢慢的习惯</a></li>
+      <li><a style="color:green">大妈，打了二块三的菜，吃了七大盆菜，你迟早要变成刘欢样啊~骨头好细啊，事实是可以长好多肉肉</a></li>
+      <li><a style="color:red">大妈你求不求我，不求我我就不帮你了，然后大妈就求了，大妈说，雪姨就是一不求，就真的不帮你了，雪姨好狠呐~</a></li>
+      <li><a style="color:white">我也有不刘欢的时候的嘛~摇摆摇摆~轻轻摇摆...</a></li>
+      <li><a style="color:blue">我说要画大妈的手，就很乖乖地把手给我，然后随便我处置了...笑脸..我只会画笑脸~要开心~~</a></li>
+      <li><a style="color:black">迎春阁该出来做生意了啊..走过路过千万不要错过...大妈，来回眸一笑，然后大妈就很屁颠地甩着她的头发配合演出...</a></li>
+    </ul>
+ </div>
+</div>
+<embed src="music/石进 - 夜的钢琴曲四.mp3" width="292" height="43" hidden="true" loop="true"></embed>
+</body>
+</html>

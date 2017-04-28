@@ -1,0 +1,1385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>时光清浅</title>
+<style>
+@font-face
+{
+    font-family:chenweixun;
+    font-style:normal;
+    font-weight:normal;
+    src:url(../newStart/fonts/STXingkai.ttf);
+}
+*
+{
+	margin:0;
+	padding:0;
+}
+body
+{
+background:url(../newStart/indexImg/1110594.jpg) no-repeat center center;
+font-family:chenweixun;
+}
+.content
+{
+	position:relative;
+	width:90%;
+	height:850px;
+	margin:20px auto;
+	box-shadow:2px 2px 10px rgba(0,0,0,.8),-2px -2px 10px rgba(0,0,0,.8);
+	overflow:hidden;
+}
+
+.contentbox
+{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+}
+.past
+{
+	position:absolute;
+	width:200px;
+	height:130px;
+	left:20%;
+	bottom:3%;
+	box-shadow:2px 2px 10px rgba(0,0,0,.8);
+	animation:shake ease .3s infinite;
+	-webkit-animation:shake ease .3s infinite;
+}
+@keyframes shake
+{
+	from
+	{
+		transform:translateY(-5px);
+	}
+	to
+	{
+		transform:translateY(5px);
+	}
+}
+@-webkit-keyframes shake
+{from
+	{
+		-webkit-transform:translateY(-5px);
+	}
+	to
+	{
+		-webkit-transform:translateY(5px);
+	}
+}
+.past:hover
+{
+	cursor:pointer;
+}
+.past ul
+{
+	list-style:none;
+	width:200px;
+	height:130px;
+	position:absolute;
+	left:0;
+	top:0;
+	
+}
+.past li
+{
+	width:200px;
+	height:130px;
+	position:absolute;
+	left:0;
+	top:0;
+	background:#FFF;
+}
+.past li img
+{
+	position:absolute;
+	left:0;
+	top:0;
+	width:95%;
+	height:95%;
+	padding:5px;
+	margin-top:-2px;
+	border-radius:10px;
+}
+.cover,
+.cover2
+{
+	width:200px;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	background:#FCC;
+	color:#399;
+	position:absolute;
+	left:0;
+	bottom:0;
+	opacity:0;
+	transform:translateY(-160px);
+	-webkit-transform:translateY(-160px);
+	
+	transition:all ease-out .8s;
+	-webkit-transition:all ease-out .8s;
+}
+.past:hover .cover,
+.now:hover .cover2
+{
+	opacity:1;
+	transform:translateY(0px);
+	-webkit-transform:translateY(0px);
+	
+}
+.now:hover .cover2
+{
+	opacity:1;
+	transform:translateY(0px);
+	-webkit-transform:translateY(0px);
+	
+}
+.now
+{
+	position:absolute;
+	width:200px;
+	height:130px;
+	right:20%;
+	bottom:3%;
+	animation:shake2 ease .3s infinite;
+	-webkit-animation:shake2 ease .3s infinite;
+	
+}
+@keyframes shake2
+{
+	from
+	{
+		transform:translateX(-5px);
+	}
+	to
+	{
+		transform:translateX(5px);
+	}
+}
+@-webkit-keyframes shake2
+{from
+	{
+		-webkit-transform:translateX(-5px);
+	}
+	to
+	{
+		-webkit-transform:translateX(5px);
+	}
+}
+.now ul
+{
+	list-style:none;
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	
+}
+.now li
+{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	background:white;
+}
+.now li:nth-of-type(1),
+.past li:nth-of-type(1)
+{
+	transform:rotate(-5deg);
+	-webkit-transform:rotate(-5deg);
+	transform-origin:bottom center;
+	-webkit-transform-origin:center 250px;
+}
+.now li:nth-of-type(2),
+.past li:nth-of-type(2)
+{
+	transform:rotate(5deg);
+	-webkit-transform:rotate(5deg);
+	transform-origin:bottom center;
+	-webkit-transform-origin:center 250px;
+}
+.now li:nth-of-type(3),
+.past li:nth-of-type(3)
+{
+	transform:rotate(6deg);
+	-webkit-transform:rotate(6deg);
+		transform-origin:bottom center;
+	-webkit-transform-origin:center 250px;
+}
+.now li img
+{
+	position:absolute;
+	left:0;
+	top:0;
+	width:95%;
+	height:95%;
+	padding:5px;
+	margin-top:-2px;
+	border-radius:10px;
+}
+.scrollbar,.pa
+{
+	width:100%;
+	height:100%;
+	position:relative;
+	transform:translateY(0%);
+	-webkit-transform:translateY(0%);
+	-webkit-backface-visibility:hidden;
+	transition:all ease-out .8s;
+	-webkit-transition:all ease-out .8s;
+}
+.scrollbar
+{
+	left:0;
+	top:0;
+}
+.pa
+{
+	overflow:hidden;
+}
+.contentbox > input,
+.contentbox > a
+{
+	width:23%;
+	height:45px;
+	line-height:45px;
+	text-align:center;
+	position:fixed;
+	top:20px;
+}
+.contentbox > input
+{
+	opacity:0;
+	z-index:1000;
+}
+.contentbox > a
+{
+	font-size:23px;
+	font-weight:700;
+	background:#F9C;
+	color:#fff;
+	z-index:10;
+	text-decoration:none;
+}
+.contentbox > input:hover,
+.contentbox > a:hover
+{
+	cursor:pointer;
+}
+.contentbox input:checked + a
+{
+	background:#821134;
+}
+.contentbox input:hover + a
+{
+	background:#AD244F;
+	
+}
+.contentbox input:checked:hover + a
+{
+	background:#821134;
+}
+#b1,#b1 + a
+{
+	left:5%;
+}
+#b2,#b2 + a
+{
+	left:28%;
+}
+#b3, #b3 + a
+{
+	left:50%;
+}
+#b4,#b4 + a
+{
+	left:72%;
+}
+
+#b1:checked~ .scrollbar
+{
+	-webkit-transform:translateY(0%);
+}
+#b2:checked~ .scrollbar
+{
+	-webkit-transform:translateY(-100%);
+}
+#b3:checked~ .scrollbar
+{
+	-webkit-transform:translateY(-200%);
+}
+#b4:checked~ .scrollbar
+{
+	-webkit-transform:translateY(-200%);
+}
+.k
+{
+	width:100%;
+	height:80%;
+	position:absolute;
+	left:0;
+	bottom:0;
+}
+.k ul
+{
+	position:absolute;
+	bottom:0%;
+	left:1%;
+	width:100%;
+	height:25%;
+	
+	list-style:none;
+	overflow:hidden;
+}
+.k ul li
+{
+	
+	margin-right:3%;
+	width:13%;
+	height:100%;
+	z-index:111;
+	display:inline-block;
+}
+.k ul li img
+{
+	position:absolute;
+	width:15%;
+	height:100%;
+	border-radius:10px;
+}
+.k ul li img:hover
+{
+	cursor:pointer;
+	
+}
+#t1
+{
+
+	transform:rotate(15deg) translateY(70px) translateX(-10px);
+	-webkit-transform:rotate(15deg) translateY(70px) translateX(-10px);
+}
+
+#t2
+{
+	transform:rotate(-15deg) translateY(70px) translateX(-15px);
+	-webkit-transform:rotate(-15deg) translateY(70px) translateX(-15px);
+}
+#t3
+{
+	transform:rotate(3deg) translateY(70px) translateX(10px);
+	-webkit-transform:rotate(3deg) translateY(70px) translateX(10px);
+}
+#t4
+{
+	transform:rotate(-10deg) translateY(90px) translateX(0px);
+	-webkit-transform:rotate(-10deg) translateY(90px) translateX(0px);
+}
+#t5
+{
+	transform:rotate(-7deg) translateY(50px) translateX(00px);
+	-webkit-transform:rotate(-7deg) translateY(50px) translateX(00px);
+}
+#t6
+{
+	transform:rotate(7deg) translateY(85px) translateX(0px);
+	-webkit-transform:rotate(7deg) translateY(85px) translateX(0px);
+}
+.show
+{
+	position:absolute;
+	left:10%;
+	top:0;
+	width:80%;
+	height:65%;
+    overflow:hidden;
+	border-radius:10px;
+	box-shadow:3px 3px 10px rgba(0,0,0,.8);
+	animation:shake2 ease .3s infinite;
+	-webkit-animation:shake2 ease .3s infinite;
+}
+.show img
+{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+}
+#show1:target
+{
+	 z-index:100;
+	 animation:ZoomIn   1s;
+	 animation-iteration-count:1;
+	 -webkit-animation:ZoomIn  1s;
+	-webkit-animation-iteration-count:1;
+}
+#show2:target
+{
+	z-index:100;
+	animation:rotate 1s;
+	-webkit-animation:rotate 1s;
+	-webkit-animation-iteration-count:1;
+}
+#show3:target
+{
+	z-index:100;
+	animation:slideLeft 1s;
+	-webkit-animation:slideLeft 1s;
+}
+#show4:target
+{
+	z-index:100;
+	animation:slideBottom 1s;
+	-webkit-animation:slideBottom 1s;
+}
+#show5:target
+{
+	z-index:100;
+	animation:ZoomOut 1s;
+	-webkit-animation:ZoomOut 1s;
+}
+#show6:target
+{
+	z-index:100;
+	animation:ZoomIn 1s;
+	-webkit-animation:ZoomIn 1s;
+}
+.bg:not(:target)
+{
+	animation:notTarget 1s;
+	-webkit-animation:notTarget 1s;
+}
+@keyframes slideLeft
+ {
+	 0%
+	 {
+		 left:-500px;
+	 }
+	 100%
+	 {
+		 left:0;
+	 }
+ }
+  @-webkit-keyframes slideLeft
+ {
+	 0%
+	 {
+		 left:-500px;
+	 }
+	 100%
+	 {
+		 left:0;
+	 }
+ }
+ @keyframes slideBottom
+ {
+	 0%
+	 {
+		 top:-500px;
+	 }
+	 100%
+	 {
+		 top:0;
+	 }
+ }
+  @-webkit-keyframes slideBottom
+ {
+	 0%
+	 {
+		 top:-500px;
+	 }
+	 100%
+	 {
+		 top:0;
+	 }
+ }
+  @keyframes ZoomOut
+ {
+	 0%
+	 {
+		  transform:scale(0.1);
+		  -webkit-transform:(0.1);
+	 }
+	 100%
+	 {
+		  -webkit-transform:none;
+		  transform:none;
+	 }
+ }
+  @-webkit-keyframes ZoomOut
+ {
+	 0%
+	 {
+		  transform:scale(0.1);
+		   -webkit-transform:scale(0.1);
+	 }
+	 100%
+	 {
+		  transform:scale(1);
+		   -webkit-transform:scale(1);
+	 }
+ }
+  @keyframes ZoomIn
+ {
+	 0%
+	 {
+		  transform:scale(2);
+		  -webkit-transform:scale(2);
+	 }
+	 100%
+	 {
+		  -webkit-transform:scale(1);
+		  transform:scale(1);
+	 }
+ }
+  @-webkit-keyframes ZoomIn
+ {
+	 0%
+	 {
+		  transform:scale(2);
+		  -webkit-transform:scale(2);
+	 }
+	 100%
+	 {
+		  -webkit-transform:scale(1);
+		  transform:scale(1);
+	 }
+ }
+  @keyframes rotate
+ {
+	 0%
+	 {
+		transform:rotate(360deg) scale(0.1);
+		-webkit-transform:rotate(360deg) scale(0.1);
+	 }
+	 100%
+	 {
+		 transform:rotate(0deg) scale(1);
+		 -webkit-transform:rotate(0deg) scale(1);
+	 }
+ }
+  @-webkit-keyframes rotate
+ {
+	 0%
+	 {
+		 transform:rotate(360deg) scale(0.1);
+		 -webkit-transform:rotate(360deg) scale(0.1);
+	 }
+	 100%
+	 {
+		 transform:rotate(0deg) scale(1);
+		 -webkit-transform:rotate(0deg) scale(1);
+	 }
+ }
+   @-webkit-keyframes notTarget {
+            	0% { z-index: 75; }
+            	100% { z-index: 75; }
+            }
+            @-moz-keyframes notTarget {
+            	0% { z-index: 75; }
+            	100% { z-index: 75; }
+            }
+            @-ms-keyframes notTarget {
+            	0% { z-index: 75; }
+            	100% { z-index: 75; }
+            }
+            @-o-keyframes notTarget {
+            	0% { z-index: 75; }
+            	100% { z-index: 75; }
+            }
+            @keyframes notTarget {
+            	0% { z-index: 75; }
+            	100% { z-index: 75; }
+            }
+	/*第一页*/
+.why
+{
+	width:90%;
+	height:60%;
+	position:absolute;
+	left:7%;
+	top:16%;
+}
+.why ul
+{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	list-style:none;
+}
+.why ul li
+{
+	float:left;
+	margin-right:-7%;
+	width:15%;
+	height:100%;
+	background:#666;
+	transform:perspective(900px) rotateY(60deg);
+	-webkit-transform:perspective(900px) rotateY(60deg);
+	transition:all ease .5s;
+	-webkit-transition:all ease .5s;
+	box-shadow:2px 2px 10px rgba(0,0,0,.8);
+}
+.why ul li:first-of-type
+{
+	margin-left:-7%;
+	background:#F99;
+}
+.why ul li:nth-of-type(2)
+{
+	background:#69F;
+	
+	
+}
+.why ul li:nth-of-type(3)
+{
+	background:#FC3;
+}
+.why ul li:nth-of-type(4)
+{
+	background:#C96;
+}
+.why ul li:nth-of-type(5)
+{
+	background:#900;
+}
+.why ul li:nth-of-type(6)
+{
+	background:#CC3;
+}
+.why ul li:nth-of-type(7)
+{
+	background:#0C6;
+}
+.why ul li:nth-of-type(8)
+{
+	background:#6CC;
+}
+.why ul li:nth-of-type(9)
+{
+	background:#F6C;
+}
+.why ul li img
+{
+	position:absolute;
+	width:93%;
+	height:30%;
+	left:3.5%;
+	top:2%;
+}
+.why ul .goodMe
+{
+	transform:rotateY(0deg);
+	-webkit-transform:rotateY(0deg);
+	margin-right:-2%;
+	margin-left:5%;
+	cursor:pointer;
+	width:25%;
+	height:100%;
+}
+.fly
+{
+	position:absolute;
+	width:100%;
+	height:20%;
+	left:-3%;
+	top:108%;
+	background:#900;
+	animation:wao linear 2s infinite;
+	-webkit-animation:wao linear 2s infinite;
+	text-align:center;
+	line-height:80px;
+	font-weight:900;
+	font-size:50px;
+}
+@keyframes wao
+{
+	from
+	{
+		transform:perspective(900px) rotateX(0deg);
+	-webkit-transform:perspective(900px) rotateX(0deg);
+	}
+	to
+	{
+		transform:perspective(900px) rotateX(360deg);
+	-webkit-transform:perspective(900px) rotateX(360deg);
+	}
+}
+@-webkit-keyframes wao
+{
+	from
+	{
+		transform:perspective(900px) rotateX(0deg);
+	-webkit-transform:perspective(900px) rotateX(0deg);
+	}
+	to
+	{
+		transform:perspective(900px) rotateX(360deg);
+	-webkit-transform:perspective(900px) rotateX(360deg);
+	}
+}
+.qtitle
+{
+	position:absolute;
+	width:93%;
+	height:5%;
+	left:3.5%;
+	top:40%;
+	text-align:center;
+	font-size:23px;
+	font-weight:900;
+}
+.qcontent
+{
+	position:absolute;
+	width:93%;
+	height:30%;
+	left:3.5%;
+	top:50%;
+	text-align:center;
+	font-size:18px;
+}
+.photoCenter
+{
+	position:absolute;
+	width:100%;
+	height:75%;
+	left:0%;
+	top:5%;
+	overflow:hidden;
+	box-shadow:0px 2px 10px rgba(0,0,0,.8);
+	
+}
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #aa,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #gg,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #pp
+{
+	animation:ro 1s ease-in .3s;
+	-webkit-animation:ro 1s ease-in .3s;
+}
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #bb,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #hh,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #mm,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #nn
+{
+	animation:mo 1s ease-out .3s;
+	-webkit-animation:mo 1s ease-out .3s;
+}
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #cc,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #ii,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #tt
+{
+	animation:le 1s ease-in-out .3s;
+	-webkit-animation:le 1s ease-in-out .3s;
+}
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #dd,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #jj,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #qq
+{
+	animation:slideBottom 1s ease-in-out .3s;
+	-webkit-animation:slideBottom 1s ease-in-out .3s;
+}
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #ee,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #kk,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #ss
+{
+	animation:rotate 1s ease-in-out .3s;
+	-webkit-animation:rotate 1s ease-in-out .3s;
+}
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #ff,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #ll,
+#b2:checked ~  .scrollbar  #panel2  .photoCenter #rr
+{
+	animation:roba 1s ease-in-out .3s;
+	-webkit-animation:roba 1s ease-in-out .3s;
+}
+.photoCenter .wrap1
+{
+	position:absolute;
+	width:20%;
+	height:22%;
+	background:#FFF;
+}
+.photoCenter .wrap2
+{
+	position:absolute;
+	width:16%;
+	height:38%;
+	background:#FFF;
+}
+.photoCenter img
+{
+	width:94%;
+	height:94%;
+	left:3%;
+	top:3%;
+	position:absolute;
+}
+.photoCenter #aa
+{
+	left:27%;
+	top:5%;
+	transform:rotate(5deg) scale(1);
+	-webkit-transform:rotate(5deg) scale(1);
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;		
+}
+.photoCenter #bb
+{
+	left:45%;
+	top:15%;
+	transform:rotate(-5deg) scale(1);
+	-webkit-transform:rotate(-5deg) scale(1);
+	transition: all .3s ease-in;
+	-webkit-transition:all .3s ease-in;		
+}
+.photoCenter #cc
+{
+	left:4%;
+	top:13%;
+	transform:rotate(-15deg) scale(1);
+	-webkit-transform:rotate(-15deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #dd
+{
+	left:79%;
+	top:60%;
+	transform:rotate(-25deg) scale(1);
+	-webkit-transform:rotate(-25deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #ee
+{
+	left:49%;
+	top:51%;
+	transform:rotate(45deg) scale(1);
+	-webkit-transform:rotate(45deg) scale(1);
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;		
+}
+.photoCenter #ff
+{
+	left:79%;
+	top:12%;
+	transform:rotate(-25deg) scale(1);
+	-webkit-transform:rotate(-25deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #gg
+{
+	left:69%;
+	top:39%;
+	transform:rotate(25deg) scale(1);
+	-webkit-transform:rotate(25deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #hh
+{
+	left:6%;
+	top:50%;
+	transform:rotate(-37deg) scale(1);
+	-webkit-transform:rotate(-37deg) scale(1);
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;		
+}
+
+.photoCenter #ii
+{
+	left:29%;
+	top:50%;
+	transform:rotate(-25deg) scale(1);
+	-webkit-transform:rotate(-25deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #ii
+{
+	left:64%;
+	top:64%;
+	transform:rotate(10deg) scale(1);
+	-webkit-transform:rotate(10deg) scale(1);
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;		
+}
+.photoCenter #jj
+{
+	left:8%;
+	top:36%;
+	transform:rotate(45deg) scale(1);
+	-webkit-transform:rotate(45deg) scale(1);
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;		
+}
+.photoCenter #kk
+{
+	left:60%;
+	top:9%;
+	transform:rotate(-25deg) scale(1);
+	-webkit-transform:rotate(-25deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #ll
+{
+	left:20%;
+	top:35%;
+	transform:rotate(-25deg) scale(1);
+	-webkit-transform:rotate(-25deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #mm
+{
+	left:29%;
+	top:30%;
+	transform:rotate(6deg) scale(1);
+	-webkit-transform:rotate(6deg) scale(1);
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #nn
+{
+	left:4%;
+	top:13%;
+	transform:rotate(-15deg) scale(1);
+	-webkit-transform:rotate(-15deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #pp
+{
+	left:34%;
+	top:60%;
+	transform:rotate(-15deg) scale(1);
+	-webkit-transform:rotate(-15deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #qq
+{
+	left:14%;
+	top:70%;
+	transform:rotate(-15deg) scale(1);
+	-webkit-transform:rotate(-15deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #rr
+{
+	left:30%;
+	top:50%;
+	transform:rotate(-15deg) scale(1);
+	-webkit-transform:rotate(-15deg) scale(1);	
+	transition: all .2s ease-out;
+	-webkit-transition:all .2s ease-out;	
+}
+.photoCenter #ss
+{
+	left:55%;
+	top:25%;
+	transform:rotate(-20deg) scale(1);
+	-webkit-transform:rotate(-20deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #tt
+{
+	left:25%;
+	top:70%;
+	transform:rotate(35deg) scale(1);
+	-webkit-transform:rotate(35deg) scale(1);	
+	transition: all .2s ease-in;
+	-webkit-transition:all .2s ease-in;	
+}
+.photoCenter #aa:hover,
+.photoCenter #bb:hover,
+.photoCenter #cc:hover,
+.photoCenter #dd:hover,
+.photoCenter #ee:hover,
+.photoCenter #ff:hover,
+.photoCenter #gg:hover,
+.photoCenter #hh:hover,
+.photoCenter #ii:hover,
+.photoCenter #jj:hover,
+.photoCenter #kk:hover,
+.photoCenter #ll:hover,
+.photoCenter #mm:hover,
+.photoCenter #nn:hover,
+.photoCenter #pp:hover,
+.photoCenter #qq:hover,
+.photoCenter #rr:hover,
+.photoCenter #ss:hover,
+.photoCenter #tt:hover
+{
+	transform:rotate(0deg) scale(1.2);
+	-webkit-transform:rotate(0deg) scale(1.2);
+	cursor:pointer;
+	z-index:111;
+}
+@keyframes roba
+{
+	from
+	{
+		opacity:0;
+		transform: translate(100%,0%);
+		-webkit-transform: translate(100%,0%);
+	}
+	to
+	{
+		opacity:1;
+		transform: translate(100%,0%);
+		-webkit-transform:translate(100%,0%);
+	}
+}
+@-webkit-keyframes roba
+{
+	from
+	{
+		opacity:0;
+		transform: translate(100%,0%);
+		-webkit-transform: translate(100%,0%);
+	}
+	to
+	{
+		opacity:1;
+		transform: translate(100%,0%);
+		-webkit-transform: translate(100%,0%);
+	}
+}
+@keyframes mo
+{
+	from
+	{
+		transform: translate(-400px,-500px) scale(2);
+	}
+	to
+	{
+		transform: translate(0px,0px) scale(1);
+	}
+}
+@-webkit-keyframes mo
+{
+	from
+	{
+		-webkit-transform: translate(-400px,-500px) scale(2);
+	}
+	to
+	{
+		-webkit-transform: translate(0px,0px) scale(1);
+	}
+}
+@keyframes le
+{
+	from
+	{
+		-webkit-transform:rotate(105deg) translateY(-400px);
+	}
+	to
+	{
+		-webkit-transform:rotate(0deg) translateY(0px);
+	}
+}
+@-webkit-keyframes le
+{
+	from
+	{
+		-webkit-transform:rotate(105deg) translateY(-400px);
+	}
+	to
+	{
+		-webkit-transform:rotate(0deg) translateY(0px);
+	}
+}
+@keyframes ro
+{
+	from
+	{
+		opacity:0;
+		transform: translate(400px,400px);
+		-webkit-transform:translate(400px,400px);
+	}
+	to
+	{
+		opacity:1;
+		transform: translate(0,0);
+		-webkit-transform: translate(0,0);
+	}
+}
+@-webkit-keyframes ro
+{
+	from
+	{
+		opacity:0;
+		transform: translate(400px,400px);
+		-webkit-transform:translate(400px,400px);
+	}
+	to
+	{
+		opacity:1;
+		transform: translate(0,0);
+		-webkit-transform: translate(0,0);
+	}
+}
+/*返回首页*/
+#panel3 .oo
+{
+	position:absolute;
+	width:10%;
+	height:4%;
+	left:72%;
+	top:10%;
+	text-align:center;
+	line-height:30px;
+}
+#panel3 .oo a
+{
+	display:block;
+	text-decoration:none;
+	text-align:center;
+	animation:woqu ease-in 1s infinite;
+	-webkit-animation:woqu ease-in 1s infinite;
+}
+@keyframes woqu
+{
+	0%
+	{
+		color:#699;
+		font-size:14px;
+	}
+	20%
+	{
+		color:#6C6;
+		font-size:18px;
+	}
+	40%
+	{
+		color:#F93;
+		font-size:20px;
+	}
+	60%
+	{
+		color:#F9C;
+		font-size:22px;
+	}
+	80%
+	{
+		color:#936;
+		font-size:24px;
+	}
+	100%
+	{
+		color:#F33;
+		font-size:26px;
+	}
+}
+@-webkit-keyframes woqu
+{
+	
+	0%
+	{
+		color:#699;
+		font-size:14px;
+	}
+	20%
+	{
+		color:#6C6;
+		font-size:18px;
+	}
+	40%
+	{
+		color:#F93;
+		font-size:20px;
+	}
+	60%
+	{
+		color:#F9C;
+		font-size:22px;
+	}
+	80%
+	{
+		color:#936;
+		font-size:24px;
+	}
+	100%
+	{
+		color:#F33;
+		font-size:26px;
+	}
+}
+</style>
+<script>
+window.onload=function()
+{
+	var odiv=document.getElementsByClassName('why')[0];
+	var oli=odiv.getElementsByTagName('li');
+	var oul=odiv.getElementsByTagName('ul')[0];
+	var ofly=document.getElementsByClassName('fly')[0];
+	var color=['#F99','#69F','#FC3', '#C96', '#900', '#CC3', '#0C6', '#6CC', '#F6C','#666'];
+	var inner=["我还是相信","星星会说话","石头会开花","穿过夏天的木栅栏","和冬天的风雪过后","你终将抵达","祝","亲爱的猪慧慧童鞋","生日快乐","棒棒的body，多多的money，心情天天很sunny"];
+	var current=4;
+	odiv.onmouseover=function()
+	{
+     for(var i=0;i<oli.length;i++)
+	 {
+		 oli[i].index=i;
+		 oli[i].onmouseover=function()
+		 {
+			 for(var i=0;i<oli.length;i++)
+			{
+				oli[i].className='';
+			}
+			 oli[this.index].className='goodMe';
+			current=this.index;
+			ofly.style.background=color[this.index];
+			ofly.innerHTML=inner[this.index];
+		 }
+		 oli[i].onmouseout=function()
+		 {
+			for(var i=0;i<oli.length;i++)
+			{
+				oli[i].className='';
+			}
+			  
+		 }
+	 }
+	}
+	odiv.onmouseout=function()
+	{
+		for(var i=0;i<oli.length;i++)
+		{
+			oli[i].className='';
+		}
+		oli[current].className='goodMe';
+		ofly.style.background=color[current];
+		ofly.innerHTML=inner[current];
+	}
+	
+}
+</script>
+
+</head>
+
+<body>
+<div class="content">
+  <div class="contentbox">
+  
+    <input type="radio" name="radio-set" checked="checked" id="b1" />
+<a href="#panel1">微笑向暖</a>
+<input type="radio"name="radio-set" id="b2" />
+<a href="#panel2">岁月暖心</a>
+<input type="radio" name="radio-set"  id="b3" />
+<a href="#panel3">时光清浅</a>
+<input type="radio" name="radio-set" id="b4" />
+<a href="#panel4">返回首页</a>
+     <div class="scrollbar">
+        <section class='pa' id="panel1">
+         <div class="why">
+               <ul>
+                 <li id="current"><img src="../newStart/pictureLine/11a.jpg" /><p class="qtitle">阿里巴巴</p><p class="qcontent">说起阿里巴巴，就想起某头把自己的网名备注成阿里慧，技术大牛啊，带带带我飞飞~在山的那边，海的那边有一群蓝精灵~</p></li>
+                 <li ><img src="../newStart/pictureLine/22a.jpg" /><p class="qtitle">火锅High起</p><p class="qcontent">那个我不吃火锅啊，我没时间呢，我论文还没翻译完呢~！除非你们每人答应都帮我翻译一段,又调侃，"那你别吃吧，我们去吃"...最后还是好心到爆炸的都帮着大妈翻译,,魅力真大...大妈~</p></li>
+                 <li><img src="../newStart/pictureLine/33a.jpg" /><p class="qtitle">又在新发现</p><p class="qcontent">今天请你们吃饭。大妈每次都会很豪气~然后，然后最后吃到撑...新发现都被我们吃烂了..搞活动，我们在嵊州先逗比地吃点东西，然后排队在新发现吃东西...现在感觉好傻b的行为...</p></li>
+                 <li ><img src="../newStart/pictureLine/44a.jpg" /><p class="qtitle">卡巴依牛排</p><p class="qcontent">美丽请客啊，又很happy的滚过去吃了，回家之前还要坑次美丽~为什么拉了我家美丽...原配跟小三儿怎么一起了~~那我呢...</p></li>
+                 <li class="goodMe"><img src="../newStart/pictureLine/55a.jpg" /><p class="qtitle">宋城送起</p><p class="qcontent">宋城思密达，那个张博她们想去宋城，我又醉了~~呵呵哒~鬼屋..大妈说不怕了，可是不知道是谁从头到晚喊到底，又抱着人，眯着眼瞎喊...SB大妈...</p></li>
+                 <li><img src="../newStart/pictureLine/66a.jpg" /><p class="qtitle">向日葵餐厅</p><p class="qcontent">公司开完会，终于能饱餐一顿了.。满足啊...大妈说不喜欢穿这个粉嫩的衣服，很小孩..我觉得美着呢！！哎哟我去，甜心又附体了~</p></li>
+                 <li><img src="../newStart/pictureLine/77a.jpg" /><p class="qtitle">KTV嗨起</p><p class="qcontent">对啊，那个啥...天灰，我知道我们不会有结果，你一定要幸福啊...还有你白色袜子的味道..雪姨你今天白色袜子啊，让大妈闻闻什么味道...哈哈..不好意思又开你玩笑了...</p></li>
+                 <li><img src="../newStart/pictureLine/88a.jpg" /><p class="qtitle">KTV Again</p><p class="qcontent">师兄师姐要毕业了，难得池师兄也嗨起来了，带着大伙直奔KTV，唱了一下午的歌，猪慧慧被男同胞包围玩游戏....你果然不一样...</p></li>
+                 <li><img src="../newStart/pictureLine/99a.jpg" /><p class="qtitle">要决斗啦</p><p class="qcontent">其实每次被雪姨打，我都特别不服~先来热热身..左三圈右三圈脖子扭扭屁股扭扭~最后还是被雪姨一把撂倒...可是你在实验室还是排行老三，因为你可以一把把我推到~~亲爱的~你还是有点实力的~.</p></li>
+                 <li><img src="../newStart/pictureLine/1010a.jpg" /><p class="qtitle">教工餐厅</p><p class="qcontent">教工餐厅是我们吹响战斗号角的地方，这是我们证明自己的地方...(食量)...好有存在感~</p>
+                  </li>
+               </ul>
+              <div class="fly">
+              或许
+              </div>
+            </div>
+        </section>
+        <section class="pa" id="panel2">
+          <div class="past" id="hei">
+         <ul>
+           <li><img src="../newStart/pictureLine/what2.jpg" /></li>
+           <li><img src="../newStart/picturesRun/1.jpg" /></li>
+           <li><img src="../newStart/picturesRun/2.jpg" /></li>
+           <li><img src="../newStart/picturesRun/3.jpg" /></li>
+           <li><img src="../newStart/pictureLine/what2.jpg" /></li>
+         </ul>
+         <div class="cover">
+         The Past
+         </div>
+      </div>
+      <div class="now">
+      <ul>
+        <li><img src="../newStart/picturesRun/0.jpg" /></li>
+        
+           <li><img src="../newStart/picturesRun/1.jpg" /></li>
+           <li><img src="../newStart/picturesRun/3.jpg" /></li>
+           <li><img src="../newStart/pictureLine/now2.jpg" /></li>
+      </ul>
+        <div class="cover2">
+         And Now
+         </div>
+      </div>
+        <div class="photoCenter">
+           <div class="wrap2" id="aa">  <img class="shu"  src="../newStart/pictureLine/1.jpg" /></div>
+           <div class="wrap2" id="bb">   <img class="shu"  src="../newStart/pictureLine/2.jpg" /></div>
+              <div class="wrap2" id="cc"><img class="shu"  src="../newStart/pictureLine/3.jpg" /></div>
+               <div class="wrap2" id="dd">  <img class="shu"  src="../newStart/pictureLine/4.jpg" /></div>
+           <div class="wrap2" id="ee">   <img class="shu"  src="../newStart/pictureLine/5.jpg" /></div>
+              <div class="wrap2" id="ff"><img class="shu"  src="../newStart/pictureLine/6.jpg" /></div>
+                 <div class="wrap2" id="gg">  <img class="shu"  src="../newStart/pictureLine/7.jpg" /></div>
+           <div class="wrap2" id="hh">   <img class="shu"  src="../newStart/pictureLine/8.jpg" /></div>
+              <div class="wrap2" id="ii"><img class="shu"  src="../newStart/pictureLine/11.jpg" /></div>
+                <div class="wrap2" id="jj"><img class="shu"  src="../newStart/pictureLine/10.jpg" /></div>
+                 <div class="wrap1" id="kk">  <img class="heng"  src="../newStart/pictureLine/14.jpg" /></div>
+           <div class="wrap2" id="ll">   <img class="shu"  src="../newStart/pictureLine/28.jpg" /></div>
+              <div class="wrap2" id="mm"><img class="shu"  src="../newStart/pictureLine/21.jpg" /></div>
+                    <div class="wrap1" id="nn">  <img class="heng"  src="../newStart/pictureLine/19.jpg" /></div>
+           <div class="wrap2" id="pp">   <img class="shu"  src="../newStart/pictureLine/16.jpg" /></div>
+              <div class="wrap1" id="qq"><img class="heng"  src="../newStart/pictureLine/222.jpg" /></div>
+                    <div class="wrap2" id="rr">  <img class="shu"  src="../newStart/pictureLine/22.jpg" /></div>
+           <div class="wrap2" id="ss">   <img class="shu"  src="../newStart/pictureLine/25.jpg" /></div>
+              <div class="wrap2" id="tt"><img class="shu"  src="../newStart/pictureLine/26.jpg" /></div>
+         </div>
+        </section>
+        <section class="pa" id="panel3">  
+        <div class="oo">
+       <a href="main.html">  返回主页</a>
+        </div>
+         <div class="k">
+            <ul>
+              <li><a href="#show1"><img id="t1" src="../newStart/pictureLine/1w.jpg" /></a></li>
+              <li><a href="#show2"><img id="t2" src="../newStart/pictureLine/2w.jpg" /></a></li>
+              <li><a href="#show3"><img id="t3" src="../newStart/pictureLine/3w.jpg" /></a></li>
+              <li><a href="#show4"><img id="t4" src="../newStart/pictureLine/4w.jpg"/></a></li>
+              <li><a href="#show5"><img id="t5" src="../newStart/pictureLine/5w.jpg"/></a></li>
+              <li><a href="#show6"><img id="t6" src="../newStart/pictureLine/6w.jpg" /></a></li>
+            </ul>
+            <div class="show">
+               <img class="bg" id="show1" src="../newStart/pictureLine/1w.jpg"/>
+               <img class="bg" id="show2" src="../newStart/pictureLine/2w.jpg"/>
+               <img class="bg" id="show3" src="../newStart/pictureLine/3w.jpg">
+               <img class="bg" id="show4" src="../newStart/pictureLine/4w.jpg" />
+               <img class="bg" id="show5" src="../newStart/pictureLine/5w.jpg" />
+               <img class="bg" id="show6" src="../newStart/pictureLine/6w.jpg" />
+            </div>
+         </div>
+        </section>
+     </div> 
+  </div>
+</div>
+<embed src="music/春畑道哉 - プロポーズ.mp3" width="292" height="43" hidden="true" loop="true"></embed>
+</body>
+</html>
